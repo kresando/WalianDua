@@ -189,7 +189,7 @@ export function ProfileTerritory() {
               </h3>
               <div className="text-xs text-muted-foreground space-y-2.5 leading-relaxed">
                 <p>
-                  Menyusul ditetapkannya Kota Tomohon melalui <strong>UU No. 10 Tahun 2003</strong> yang disahkan Presiden R.I. Megawati Soekarnoputri pada 25 Februari 2003, wilayah Tomohon mengalami perkembangan pesat. Pemerintah Kota Tomohon di bawah Walikota pertama <strong>Bapak Jefferson S.M. Rumayar</strong> kemudian memekarkan Kelurahan Walian menjadi tiga: <em>Walian Induk</em>, <em>Walian Satu</em>, dan <em>Walian Dua</em>.
+                  Menyusul ditetapkannya Kota Tomohon melalui <strong>UU No. 10 Tahun 2003</strong> yang disahkan Presiden R.I. Megawati Soekarnoputri pada 25 Februari 2003, wilayah Tomohon mengalami perkembangan pesat. Pemerintah Kota Tomohon di bawah Walikota pertama <strong>Bapak Jefferson S.M. Rumajar</strong> kemudian memekarkan Kelurahan Walian menjadi tiga: <em>Walian Induk</em>, <em>Walian Satu</em>, dan <em>Walian Dua</em>.
                 </p>
                 <div className="p-3 rounded-lg bg-muted/30 border border-border/60 flex flex-wrap items-center justify-between gap-3 text-xs">
                   <div>

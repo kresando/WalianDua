@@ -134,7 +134,7 @@ export const KELURAHAN_DATA: KelurahanInfo = {
   postalCode: "95439",
   legalBasis: "UU No. 10 Tahun 2003 & Pemekaran Tomohon 2008",
   inaugurationDate: "29 Agustus 2008",
-  inauguratedBy: "Walikota Tomohon Pertama, Jefferson S.M. Rumayar",
+  inauguratedBy: "Walikota Tomohon Pertama, Jefferson S.M. Rumajar",
   firstLurah: "Ibu Siska Tambingon, S.Pd",
   motto: "Sitou Timou Tumou Tou",
   tagline: "Harmonis, Berdaya, dan Transparan Berakar Kearifan Minahasa",
