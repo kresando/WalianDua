@@ -118,10 +118,20 @@ export function Navbar() {
       )}
 
       {/* Top Scrim Veil: Smoothly prevents content from bleeding through notch gaps when scrolling */}
+      {/* Desktop Scrim */}
       <div
         aria-hidden="true"
-        className={`fixed top-0 left-0 right-0 h-20 pointer-events-none z-40 transition-opacity duration-300 bg-gradient-to-b from-white via-white via-60% to-transparent ${
+        className={`hidden lg:block fixed top-0 left-0 right-0 h-20 pointer-events-none z-40 transition-opacity duration-300 bg-gradient-to-b from-white via-white via-60% to-transparent ${
           isScrolled ? "opacity-100" : "opacity-0"
+        }`}
+      />
+      {/* Mobile Top Header Mask: Completely masks text when scrolling on mobile */}
+      <div
+        aria-hidden="true"
+        className={`lg:hidden fixed top-0 left-0 right-0 h-16 pointer-events-none z-40 transition-all duration-200 ${
+          isScrolled
+            ? "bg-white/98 backdrop-blur-md border-b border-zinc-200/80 shadow-xs opacity-100"
+            : "bg-gradient-to-b from-white via-white/80 to-transparent opacity-90"
         }`}
       />
 
@@ -245,7 +255,7 @@ export function Navbar() {
         {/* ========================================================================= */}
         <div
           ref={containerRef}
-          className={`lg:hidden absolute top-0 left-1/2 -translate-x-1/2 z-50 flex flex-col bg-white/95 backdrop-blur-md text-zinc-900 select-none rounded-b-[24px] pointer-events-auto px-4 border-b border-x transition-all duration-300 ease-out w-[92vw] max-w-md sm:w-auto ${
+          className={`lg:hidden absolute top-0 left-1/2 -translate-x-1/2 z-50 flex flex-col bg-white text-zinc-900 select-none rounded-b-[20px] pointer-events-auto px-3 sm:px-4 border-b border-x transition-all duration-300 ease-out w-[94vw] max-w-md sm:w-auto ${
             isScrolled
               ? "border-zinc-300/80 shadow-[0_8px_30px_-4px_rgba(0,0,0,0.12)]"
               : "border-zinc-200/80 shadow-lg"

@@ -50,7 +50,7 @@ export function HeroSection() {
             {/* Display Headline without eyebrow/kicker ban */}
             <motion.h1
               variants={FADE_UP}
-              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-[-0.03em] text-foreground leading-[1.08] text-balance"
+              className="text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-[-0.03em] text-foreground leading-[1.15] sm:leading-[1.08] text-balance"
             >
               Harmonis, Berdaya, dan Transparan di Kelurahan Walian Dua
             </motion.h1>
@@ -58,7 +58,7 @@ export function HeroSection() {
             {/* Cultural Narrative Subheading */}
             <motion.p
               variants={FADE_UP}
-              className="mt-6 text-base sm:text-lg text-zinc-600 leading-relaxed max-w-xl"
+              className="mt-4 sm:mt-6 text-xs sm:text-base lg:text-lg text-zinc-600 leading-relaxed max-w-xl"
             >
               Berlandaskan falsafah luhur Minahasa{" "}
               <strong className="text-foreground font-semibold italic">
@@ -74,11 +74,11 @@ export function HeroSection() {
             {/* Call To Action Buttons (Standard, Sharp, Purposeful) */}
             <motion.div
               variants={FADE_UP}
-              className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3"
+              className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3"
             >
               <a
                 href="#layanan"
-                className="inline-flex items-center justify-center h-12 px-6 rounded-xl bg-zinc-950 text-white text-xs sm:text-sm font-semibold hover:bg-zinc-800 active:scale-[0.98] transition-all gap-2 shadow-xs group text-center"
+                className="inline-flex items-center justify-center h-11 sm:h-12 px-6 rounded-xl bg-zinc-950 text-white text-xs sm:text-sm font-semibold hover:bg-zinc-800 active:scale-[0.98] transition-all gap-2 shadow-xs group text-center"
               >
                 <span>Lihat Layanan Surat Warga</span>
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
@@ -86,41 +86,47 @@ export function HeroSection() {
 
               <a
                 href="#profil"
-                className="inline-flex items-center justify-center h-12 px-6 rounded-xl border border-border bg-background text-foreground text-xs sm:text-sm font-medium hover:bg-muted/60 active:scale-[0.98] transition-all shadow-2xs text-center"
+                className="inline-flex items-center justify-center h-11 sm:h-12 px-6 rounded-xl border border-border bg-background text-foreground text-xs sm:text-sm font-medium hover:bg-muted/60 active:scale-[0.98] transition-all shadow-2xs text-center"
               >
                 Profil Wilayah & Potensi
               </a>
             </motion.div>
 
-            {/* Typographic Civic Metrics Strip (3 Symmetrical Columns) */}
+            {/* Typographic Civic Metrics Strip (3 Symmetrical Columns, No Collision on 320px) */}
             <motion.div
               variants={FADE_UP}
-              className="mt-12 pt-7 border-t border-border/80 grid grid-cols-3 gap-2 sm:gap-6 divide-x divide-border/80"
+              className="mt-8 sm:mt-12 pt-6 sm:pt-7 border-t border-border/80 grid grid-cols-3 gap-2 sm:gap-6 divide-x divide-border/80"
             >
-              <div className="pr-2 sm:pr-6 group/metric">
-                <div className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-foreground tabular-nums whitespace-nowrap">
+              {/* Metric 1 */}
+              <div className="pr-1.5 sm:pr-6 group/metric min-w-0 overflow-hidden">
+                <div className="text-lg sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-foreground tabular-nums">
                   Rp 0
                 </div>
-                <div className="text-[11px] sm:text-xs text-muted-foreground font-medium mt-1 leading-snug">
+                <div className="text-[10px] sm:text-xs text-muted-foreground font-medium mt-0.5 sm:mt-1 leading-snug">
                   Layanan Bebas Biaya
                 </div>
               </div>
 
-              <div className="px-2 sm:px-6 group/metric">
-                <div className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-foreground whitespace-nowrap">
-                  5 Lingkungan
+              {/* Metric 2 */}
+              <div className="px-1.5 sm:px-6 group/metric min-w-0 overflow-hidden">
+                <div className="text-lg sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-foreground leading-tight">
+                  <span className="tabular-nums">5 </span>
+                  <span className="text-xs sm:text-2xl lg:text-3xl font-bold block sm:inline">
+                    Lingkungan
+                  </span>
                 </div>
-                <div className="text-[11px] sm:text-xs text-muted-foreground font-medium mt-1 leading-snug">
+                <div className="text-[10px] sm:text-xs text-muted-foreground font-medium mt-0.5 sm:mt-1 leading-snug">
                   Kearifan Mapalus
                 </div>
               </div>
 
-              <div className="pl-2 sm:pl-6 group/metric">
-                <div className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-foreground tabular-nums whitespace-nowrap">
+              {/* Metric 3 */}
+              <div className="pl-1.5 sm:pl-6 group/metric min-w-0 overflow-hidden">
+                <div className="text-lg sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-foreground tabular-nums">
                   100%
                 </div>
-                <div className="text-[11px] sm:text-xs text-muted-foreground font-medium mt-1 leading-snug">
-                  Realisasi PBB-P2 Lunas
+                <div className="text-[10px] sm:text-xs text-muted-foreground font-medium mt-0.5 sm:mt-1 leading-snug">
+                  Realisasi PBB-P2
                 </div>
               </div>
             </motion.div>
