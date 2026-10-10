@@ -32,7 +32,7 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # local database files
-data/
+/data/
 *.db
 *.db-journal
 *.db-shm
