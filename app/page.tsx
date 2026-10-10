@@ -4,6 +4,7 @@ import { HeroSection } from "@/components/hero-section"
 import { StatsStrip } from "@/components/stats-strip"
 import { ServicesSection } from "@/components/services-section"
 import { ProfileTerritory } from "@/components/profile-territory"
+import { PotenciesSection } from "@/components/potencies-section"
 import { OfficialsSection } from "@/components/officials-section"
 import { CitizenGallerySection } from "@/components/citizen-gallery-section"
 import { MediaGallerySection } from "@/components/media-gallery-section"
@@ -32,7 +33,10 @@ export default function Home() {
         {/* 4. Geography, Boundaries, and Facilities Profile */}
         <ProfileTerritory />
 
-        {/* 5. Governance, Officials & LKK Community Bodies */}
+        {/* 5. Potensi Unggulan & Kearifan Lokal Florikultura & Mapalus */}
+        <PotenciesSection />
+
+        {/* 6. Governance, Officials & LKK Community Bodies */}
         <OfficialsSection />
 
         {/* 6. Galeri Warga & Kegiatan Komunitas Walian Dua */}

@@ -6,12 +6,19 @@ import {
   Camera, 
   Video, 
   ExternalLink, 
-  X, 
   Maximize2, 
   Play
 } from "lucide-react"
 import { ASSET_CATALOGUE, VIDEO_REFERENCES, MediaAsset } from "@/lib/data/kelurahan-data"
 import { buttonVariants } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog"
 
 export function MediaGallerySection() {
   const [activeTab, setActiveTab] = React.useState<"photos" | "videos">("photos")
@@ -37,7 +44,7 @@ export function MediaGallerySection() {
           <div className="flex items-center gap-1.5 p-1 rounded-xl border border-border bg-muted/40 self-start md:self-end">
             <button
               onClick={() => setActiveTab("photos")}
-              className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+              className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-semibold transition-all min-h-[38px] ${
                 activeTab === "photos"
                   ? "bg-foreground text-background shadow-xs"
                   : "text-muted-foreground hover:text-foreground"
@@ -48,7 +55,7 @@ export function MediaGallerySection() {
             </button>
             <button
               onClick={() => setActiveTab("videos")}
-              className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+              className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-semibold transition-all min-h-[38px] ${
                 activeTab === "videos"
                   ? "bg-foreground text-background shadow-xs"
                   : "text-muted-foreground hover:text-foreground"
@@ -113,7 +120,7 @@ export function MediaGallerySection() {
 
         {/* Tab Content: Videos */}
         {activeTab === "videos" && (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {VIDEO_REFERENCES.map((video, idx) => (
               <div
                 key={idx}
@@ -126,7 +133,7 @@ export function MediaGallerySection() {
                       src={idx === 0 ? "/images/danau-linow.jpg" : idx === 1 ? "/images/bunga-tomohon.jpg" : "/images/tomohon-overview.jpg"}
                       alt={video.title}
                       fill
-                      sizes="(max-width: 768px) 100vw, 33vw"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover opacity-60"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
@@ -154,12 +161,13 @@ export function MediaGallerySection() {
 
                     <div className="mt-4 flex flex-wrap gap-1.5">
                       {video.topics.map((topic) => (
-                        <span
+                        <Badge
                           key={topic}
-                          className="px-2 py-0.5 rounded-md text-[10px] font-medium bg-muted text-muted-foreground"
+                          variant="secondary"
+                          className="text-[10px] font-medium"
                         >
                           {topic}
-                        </span>
+                        </Badge>
                       ))}
                     </div>
                   </div>
@@ -173,10 +181,10 @@ export function MediaGallerySection() {
                     className={buttonVariants({
                       variant: "outline",
                       size: "sm",
-                      className: "w-full text-xs h-8 gap-1.5 justify-center",
+                      className: "w-full text-xs h-9 gap-1.5 justify-center",
                     })}
                   >
-                    <ExternalLink className="size-3" />
+                    <ExternalLink className="size-3.5" />
                     Tonton di YouTube Resmi
                   </a>
                 </div>
@@ -186,51 +194,48 @@ export function MediaGallerySection() {
         )}
       </div>
 
-      {/* Lightbox Modal */}
-      {selectedPhoto && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md animate-in fade-in-50"
-        >
-          <div className="relative w-full max-w-4xl rounded-2xl border border-border/40 bg-background overflow-hidden shadow-2xl flex flex-col">
-            <button
-              onClick={() => setSelectedPhoto(null)}
-              className="absolute right-4 top-4 z-20 size-8 rounded-full bg-background/80 backdrop-blur-xs text-foreground hover:bg-background flex items-center justify-center border border-border"
-              aria-label="Tutup Pratinjau Foto"
-            >
-              <X className="size-4" />
-            </button>
-
-            <div className="relative aspect-[16/10] w-full bg-black/90">
-              <Image
-                src={selectedPhoto.src}
-                alt={selectedPhoto.alt}
-                fill
-                sizes="(max-width: 1024px) 100vw, 896px"
-                className="object-contain"
-              />
-            </div>
-
-            <div className="p-6 bg-card border-t border-border">
-              <div className="flex items-center justify-between gap-4 mb-1">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
-                  {selectedPhoto.category}
-                </span>
-                <span className="text-[11px] text-muted-foreground font-mono">
-                  {selectedPhoto.credit}
-                </span>
+      {/* Accessible Lightbox Modal via shadcn */}
+      <Dialog
+        open={Boolean(selectedPhoto)}
+        onOpenChange={(open) => {
+          if (!open) setSelectedPhoto(null)
+        }}
+      >
+        <DialogContent className="sm:max-w-4xl max-h-[92vh] overflow-y-auto p-0 gap-0 overflow-hidden">
+          {selectedPhoto && (
+            <>
+              <div className="relative aspect-[16/10] w-full bg-black/90">
+                <Image
+                  src={selectedPhoto.src}
+                  alt={selectedPhoto.alt}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 896px"
+                  className="object-contain"
+                />
               </div>
-              <h3 className="text-lg font-bold text-foreground">
-                {selectedPhoto.title}
-              </h3>
-              <p className="mt-1 text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                {selectedPhoto?.caption ?? ""}
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
+
+              <div className="p-6 bg-card border-t border-border">
+                <DialogHeader className="gap-1 mb-2">
+                  <div className="flex items-center justify-between gap-4 mb-1">
+                    <Badge variant="outline" className="text-[11px] font-bold uppercase tracking-wider">
+                      {selectedPhoto.category}
+                    </Badge>
+                    <span className="text-[11px] text-muted-foreground font-mono">
+                      {selectedPhoto.credit}
+                    </span>
+                  </div>
+                  <DialogTitle className="text-lg sm:text-xl font-bold text-foreground text-left">
+                    {selectedPhoto.title}
+                  </DialogTitle>
+                  <DialogDescription className="text-xs sm:text-sm text-muted-foreground leading-relaxed text-left">
+                    {selectedPhoto.caption}
+                  </DialogDescription>
+                </DialogHeader>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   )
 }

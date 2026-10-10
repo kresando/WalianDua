@@ -2,6 +2,7 @@ import * as React from "react"
 import Image from "next/image"
 import { Flower2, Sprout, HeartHandshake, Mountain, ArrowUpRight } from "lucide-react"
 import { POTENSI_UNGGULAN } from "@/lib/data/kelurahan-data"
+import { Badge } from "@/components/ui/badge"
 
 export function PotenciesSection() {
   const flowerItem = POTENSI_UNGGULAN.find((p) => p.category === "Florikultura") || POTENSI_UNGGULAN[0]
@@ -22,31 +23,32 @@ export function PotenciesSection() {
           </p>
         </div>
 
-        {/* 21st.dev Style Asymmetric Bento Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          {/* Bento Item 1: Florikultura (Featured, Span 8) */}
-          <div className="lg:col-span-8 rounded-2xl border border-border bg-card overflow-hidden flex flex-col justify-between group hover:border-foreground/30 transition-colors shadow-xs">
+        {/* Asymmetric Bento Grid (Mobile Stacks, Tablet Balanced, Desktop 12-Cols) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6">
+          {/* Bento Item 1: Florikultura (Featured, Span 8 on desktop, Span 2 on tablet) */}
+          <div className="md:col-span-2 lg:col-span-8 rounded-2xl border border-border bg-card overflow-hidden flex flex-col justify-between group hover:border-foreground/30 transition-colors shadow-xs">
             <div className="relative aspect-[16/9] sm:aspect-[21/9] overflow-hidden bg-muted">
               <Image
                 src={flowerItem.image}
                 alt={flowerItem.title}
                 fill
+                sizes="(max-width: 1024px) 100vw, 66vw"
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
               
               <div className="absolute top-4 left-4">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-semibold bg-background/90 backdrop-blur-md text-foreground border border-border/60">
+                <Badge variant="outline" className="gap-1.5 bg-background/90 backdrop-blur-md text-foreground border-border/60">
                   <Flower2 className="size-3.5 text-foreground" />
                   Sentra Florikultura Tomohon
-                </span>
+                </Badge>
               </div>
 
               <div className="absolute bottom-4 left-4 right-4 text-white">
                 <span className="text-xs font-semibold text-emerald-300 block mb-1">
                   {flowerItem.highlight}
                 </span>
-                <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white leading-tight">
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold tracking-tight text-white leading-tight">
                   {flowerItem.title}
                 </h3>
               </div>
@@ -73,29 +75,30 @@ export function PotenciesSection() {
             </div>
           </div>
 
-          {/* Bento Item 2: Mapalus Gotong Royong (Span 4) */}
-          <div className="lg:col-span-4 rounded-2xl border border-border bg-card overflow-hidden flex flex-col justify-between group hover:border-foreground/30 transition-colors shadow-xs">
+          {/* Bento Item 2: Mapalus Gotong Royong (Span 4 on desktop, Span 2 on tablet) */}
+          <div className="md:col-span-2 lg:col-span-4 rounded-2xl border border-border bg-card overflow-hidden flex flex-col justify-between group hover:border-foreground/30 transition-colors shadow-xs">
             <div className="relative aspect-[16/10] overflow-hidden bg-muted">
               <Image
                 src={mapalusItem.image}
                 alt={mapalusItem.title}
                 fill
+                sizes="(max-width: 1024px) 100vw, 33vw"
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               
               <div className="absolute top-4 left-4">
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold bg-background/90 backdrop-blur-md text-foreground border border-border/60">
+                <Badge variant="outline" className="gap-1.5 bg-background/90 backdrop-blur-md text-foreground border-border/60">
                   <HeartHandshake className="size-3.5 text-foreground" />
                   Kearifan Budaya
-                </span>
+                </Badge>
               </div>
 
               <div className="absolute bottom-3 left-4 right-4 text-white">
                 <span className="text-xs font-semibold text-emerald-300 block mb-0.5">
                   {mapalusItem.highlight}
                 </span>
-                <h3 className="text-lg font-bold tracking-tight text-white leading-snug">
+                <h3 className="text-base sm:text-lg font-bold tracking-tight text-white leading-snug">
                   {mapalusItem.title}
                 </h3>
               </div>
@@ -113,29 +116,30 @@ export function PotenciesSection() {
             </div>
           </div>
 
-          {/* Bento Item 3: Hortikultura Wawo (Span 6) */}
-          <div className="lg:col-span-6 rounded-2xl border border-border bg-card overflow-hidden flex flex-col justify-between group hover:border-foreground/30 transition-colors shadow-xs">
+          {/* Bento Item 3: Hortikultura Wawo (Span 6 on desktop, Span 1 on tablet) */}
+          <div className="md:col-span-1 lg:col-span-6 rounded-2xl border border-border bg-card overflow-hidden flex flex-col justify-between group hover:border-foreground/30 transition-colors shadow-xs">
             <div className="relative aspect-[16/9] overflow-hidden bg-muted">
               <Image
                 src={wawoItem.image}
                 alt={wawoItem.title}
                 fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               
               <div className="absolute top-4 left-4">
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold bg-background/90 backdrop-blur-md text-foreground border border-border/60">
+                <Badge variant="outline" className="gap-1.5 bg-background/90 backdrop-blur-md text-foreground border-border/60">
                   <Sprout className="size-3.5 text-foreground" />
                   Ketahanan Pangan
-                </span>
+                </Badge>
               </div>
 
               <div className="absolute bottom-3 left-4 right-4 text-white">
                 <span className="text-xs font-semibold text-emerald-300 block mb-0.5">
                   {wawoItem.highlight}
                 </span>
-                <h3 className="text-lg sm:text-xl font-bold tracking-tight text-white leading-snug">
+                <h3 className="text-base sm:text-lg lg:text-xl font-bold tracking-tight text-white leading-snug">
                   {wawoItem.title}
                 </h3>
               </div>
@@ -153,29 +157,30 @@ export function PotenciesSection() {
             </div>
           </div>
 
-          {/* Bento Item 4: Danau Linow & Geotermal (Span 6) */}
-          <div className="lg:col-span-6 rounded-2xl border border-border bg-card overflow-hidden flex flex-col justify-between group hover:border-foreground/30 transition-colors shadow-xs">
+          {/* Bento Item 4: Danau Linow & Geotermal (Span 6 on desktop, Span 1 on tablet) */}
+          <div className="md:col-span-1 lg:col-span-6 rounded-2xl border border-border bg-card overflow-hidden flex flex-col justify-between group hover:border-foreground/30 transition-colors shadow-xs">
             <div className="relative aspect-[16/9] overflow-hidden bg-muted">
               <Image
                 src={linowItem.image}
                 alt={linowItem.title}
                 fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               
               <div className="absolute top-4 left-4">
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold bg-background/90 backdrop-blur-md text-foreground border border-border/60">
+                <Badge variant="outline" className="gap-1.5 bg-background/90 backdrop-blur-md text-foreground border-border/60">
                   <Mountain className="size-3.5 text-foreground" />
                   Pariwisata & Lanskap
-                </span>
+                </Badge>
               </div>
 
               <div className="absolute bottom-3 left-4 right-4 text-white">
                 <span className="text-xs font-semibold text-emerald-300 block mb-0.5">
                   {linowItem.highlight}
                 </span>
-                <h3 className="text-lg sm:text-xl font-bold tracking-tight text-white leading-snug">
+                <h3 className="text-base sm:text-lg lg:text-xl font-bold tracking-tight text-white leading-snug">
                   {linowItem.title}
                 </h3>
               </div>

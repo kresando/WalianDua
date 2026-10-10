@@ -6,13 +6,21 @@ import {
   Clock, 
   CheckCircle2, 
   ShieldCheck, 
-  X, 
   ArrowRight, 
   HelpCircle,
   Phone
 } from "lucide-react"
 import { LAYANAN_PUBLIK, PublicService } from "@/lib/data/kelurahan-data"
 import { Button, buttonVariants } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+} from "@/components/ui/dialog"
 
 const CATEGORIES = [
   { id: "all", label: "Semua Layanan" },
@@ -55,8 +63,8 @@ export function ServicesSection() {
           </div>
         </div>
 
-        {/* Categories Filter Tabs */}
-        <div className="mt-8 flex flex-wrap items-center gap-2">
+        {/* Categories Filter Tabs (Responsive Horizontal Scroll on Mobile) */}
+        <div className="mt-8 flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar">
           {CATEGORIES.map((cat) => {
             const count =
               cat.id === "all"
@@ -66,7 +74,7 @@ export function ServicesSection() {
               <button
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat.id)}
-                className={`px-3.5 py-2 rounded-lg text-xs font-medium transition-all duration-200 active:scale-[0.98] flex items-center gap-1.5 ${
+                className={`px-3.5 py-2 rounded-xl text-xs font-medium transition-all duration-200 active:scale-[0.98] flex items-center gap-1.5 shrink-0 min-h-[40px] ${
                   selectedCategory === cat.id
                     ? "bg-foreground text-background shadow-xs font-semibold"
                     : "bg-muted/50 text-muted-foreground hover:text-foreground hover:bg-muted"
@@ -97,12 +105,12 @@ export function ServicesSection() {
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-3">
-                    <span className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+                    <Badge variant="outline" className="text-[10px] uppercase font-semibold">
                       {service.category}
-                    </span>
-                    <span className="text-xs font-medium text-emerald-700 bg-emerald-50/80 px-2.5 py-0.5 rounded-full border border-emerald-200/60">
+                    </Badge>
+                    <Badge variant="secondary" className="text-xs font-medium text-emerald-700 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200/60 dark:border-emerald-800/40">
                       {service.cost}
-                    </span>
+                    </Badge>
                   </div>
 
                   <h3 className="text-base sm:text-lg font-bold tracking-tight text-foreground group-hover:text-foreground/90 transition-colors">
@@ -127,7 +135,7 @@ export function ServicesSection() {
                     size="sm"
                     variant="outline"
                     onClick={() => setActiveService(service)}
-                    className="text-xs font-semibold h-8 gap-1"
+                    className="text-xs font-semibold h-9 gap-1"
                   >
                     Lihat Syarat & Alur
                     <ArrowRight className="size-3" />
@@ -157,123 +165,115 @@ export function ServicesSection() {
         </div>
       </div>
 
-      {/* Detail Modal Dialog */}
-      {activeService && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/60 backdrop-blur-xs animate-in fade-in-50"
-        >
-          <div className="relative w-full max-w-2xl rounded-2xl border border-border bg-background p-6 sm:p-8 shadow-2xl max-h-[90vh] overflow-y-auto">
-            {/* Close Button */}
-            <button
-              onClick={() => setActiveService(null)}
-              className="absolute right-4 top-4 p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
-              aria-label="Tutup Dialog"
-            >
-              <X className="size-5" />
-            </button>
+      {/* Accessible Detail Dialog via shadcn */}
+      <Dialog
+        open={Boolean(activeService)}
+        onOpenChange={(open) => {
+          if (!open) setActiveService(null)
+        }}
+      >
+        <DialogContent className="sm:max-w-2xl max-h-[90vh] overflow-y-auto">
+          {activeService && (
+            <>
+              <DialogHeader>
+                <div className="flex items-center gap-2 mb-1">
+                  <Badge variant="outline" className="text-[10px] uppercase font-semibold">
+                    {activeService.category}
+                  </Badge>
+                  <Badge variant="secondary" className="text-[10px] font-bold text-emerald-700 bg-emerald-50 dark:bg-emerald-950/40">
+                    Biaya: {activeService.cost}
+                  </Badge>
+                </div>
+                <DialogTitle className="text-xl sm:text-2xl font-bold tracking-tight text-foreground text-left">
+                  {activeService.title}
+                </DialogTitle>
+                <DialogDescription className="text-xs sm:text-sm text-muted-foreground leading-relaxed text-left">
+                  {activeService.description}
+                </DialogDescription>
+              </DialogHeader>
 
-            {/* Modal Header */}
-            <div>
-              <div className="inline-flex items-center gap-2 mb-2">
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground px-2 py-0.5 rounded-md bg-muted">
-                  {activeService.category}
-                </span>
-                <span className="text-xs font-bold text-emerald-600 bg-emerald-500/10 px-2 py-0.5 rounded-md">
-                  Biaya: {activeService.cost}
-                </span>
+              {/* Processing Time Meta */}
+              <div className="p-3 rounded-lg border border-border/80 bg-muted/30 flex items-center justify-between text-xs">
+                <span className="text-muted-foreground">Estimasi Penyelesaian:</span>
+                <strong className="text-foreground font-semibold">{activeService.processingTime}</strong>
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground">
-                {activeService.title}
-              </h3>
-              <p className="mt-1.5 text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                {activeService.description}
-              </p>
-            </div>
 
-            {/* Processing Time Meta */}
-            <div className="mt-4 p-3 rounded-lg border border-border/80 bg-muted/30 flex items-center justify-between text-xs">
-              <span className="text-muted-foreground">Estimasi Penyelesaian:</span>
-              <strong className="text-foreground font-semibold">{activeService.processingTime}</strong>
-            </div>
+              {/* Requirements Checklist */}
+              <div className="mt-2">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-foreground mb-3 flex items-center gap-2">
+                  <CheckCircle2 className="size-4 text-emerald-600" />
+                  Dokumen Persyaratan yang Harus Disiapkan
+                </h4>
+                <ul className="space-y-2">
+                  {activeService.requirements.map((req, idx) => (
+                    <li
+                      key={idx}
+                      className="flex items-start gap-2.5 p-2.5 rounded-lg border border-border/50 bg-card text-xs text-foreground"
+                    >
+                      <span className="size-4 rounded-full bg-muted flex items-center justify-center font-bold text-[10px] text-muted-foreground shrink-0 mt-0.5">
+                        {idx + 1}
+                      </span>
+                      <span>{req}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-            {/* Requirements Checklist */}
-            <div className="mt-6">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-foreground mb-3 flex items-center gap-2">
-                <CheckCircle2 className="size-4 text-emerald-600" />
-                Dokumen Persyaratan yang Harus Disiapkan
-              </h4>
-              <ul className="space-y-2">
-                {activeService.requirements.map((req, idx) => (
-                  <li
-                    key={idx}
-                    className="flex items-start gap-2.5 p-2.5 rounded-lg border border-border/50 bg-card text-xs text-foreground"
+              {/* Workflow Steps */}
+              <div className="mt-2">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-foreground mb-3 flex items-center gap-2">
+                  <FileText className="size-4 text-foreground" />
+                  Tahapan Pengurusan Berkas
+                </h4>
+                <div className="space-y-2">
+                  {activeService.flow.map((step, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-start gap-3 p-3 rounded-lg border border-border/40 bg-muted/20 text-xs text-muted-foreground"
+                    >
+                      <span className="size-5 rounded-md bg-foreground text-background flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">
+                        {idx + 1}
+                      </span>
+                      <span className="leading-relaxed text-foreground">{step}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <DialogFooter className="mt-4 flex-col sm:flex-row items-center justify-between gap-3 sm:gap-2">
+                <p className="text-[11px] text-muted-foreground text-center sm:text-left">
+                  Butuh panduan lebih lanjut? Petugas kelurahan siap membantu.
+                </p>
+                <div className="flex items-center gap-2 w-full sm:w-auto">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setActiveService(null)}
+                    className="flex-1 sm:flex-none text-xs h-9"
                   >
-                    <span className="size-4 rounded-full bg-muted flex items-center justify-center font-bold text-[10px] text-muted-foreground shrink-0 mt-0.5">
-                      {idx + 1}
-                    </span>
-                    <span>{req}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Workflow Steps */}
-            <div className="mt-6">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-foreground mb-3 flex items-center gap-2">
-                <FileText className="size-4 text-blue-600" />
-                Tahapan Pengurusan Berkas
-              </h4>
-              <div className="space-y-2">
-                {activeService.flow.map((step, idx) => (
-                  <div
-                    key={idx}
-                    className="flex items-start gap-3 p-3 rounded-lg border border-border/40 bg-muted/20 text-xs text-muted-foreground"
+                    Tutup
+                  </Button>
+                  <a
+                    href={`https://wa.me/6281244556677?text=Halo%20Kelurahan%20Walian%20Dua,%20saya%20ingin%20berkonsultasi%20mengenai%20syarat%20${encodeURIComponent(
+                      activeService.title
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={buttonVariants({
+                      size: "sm",
+                      className:
+                        "flex-1 sm:flex-none text-xs h-9 gap-1.5 bg-foreground text-background hover:bg-foreground/90 font-semibold",
+                    })}
                   >
-                    <span className="size-5 rounded-md bg-foreground text-background flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">
-                      {idx + 1}
-                    </span>
-                    <span className="leading-relaxed text-foreground">{step}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Modal Actions */}
-            <div className="mt-8 pt-4 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-3">
-              <p className="text-[11px] text-muted-foreground text-center sm:text-left">
-                Butuh panduan lebih lanjut? Petugas kelurahan siap membantu.
-              </p>
-              <div className="flex items-center gap-2 w-full sm:w-auto">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => setActiveService(null)}
-                  className="flex-1 sm:flex-none text-xs h-9"
-                >
-                  Tutup
-                </Button>
-                <a
-                  href={`https://wa.me/6281244556677?text=Halo%20Kelurahan%20Walian%20Dua,%20saya%20ingin%20berkonsultasi%20mengenai%20syarat%20${encodeURIComponent(
-                    activeService.title
-                  )}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={buttonVariants({
-                    size: "sm",
-                    className:
-                      "flex-1 sm:flex-none text-xs h-9 gap-1.5 bg-foreground text-background hover:bg-foreground/90 font-semibold",
-                  })}
-                >
-                  <Phone className="size-3.5" />
-                  Tanya Petugas
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+                    <Phone className="size-3.5" />
+                    Tanya Petugas
+                  </a>
+                </div>
+              </DialogFooter>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   )
 }

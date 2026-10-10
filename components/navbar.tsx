@@ -283,14 +283,14 @@ export function Navbar() {
               aria-expanded={isDropdownOpen}
               aria-label="Buka menu navigasi"
               onClick={() => setIsDropdownOpen((prev) => !prev)}
-              className="flex h-8.5 items-center justify-center gap-1.5 rounded-full px-3 text-xs font-semibold text-zinc-900 hover:bg-zinc-100 transition-colors"
+              className="flex h-8.5 items-center justify-center gap-1.5 rounded-full px-2.5 sm:px-3 text-xs font-semibold text-zinc-900 hover:bg-zinc-100 transition-colors shrink min-w-0"
             >
               {activeItem?.icon && (
-                <activeItem.icon className="size-3.5 text-zinc-500" />
+                <activeItem.icon className="size-3.5 text-zinc-500 shrink-0" />
               )}
-              <span>{activeItem?.label}</span>
+              <span className="truncate max-w-[110px] sm:max-w-none">{activeItem?.label}</span>
               <ChevronDown
-                className={`size-3 text-zinc-500 transition-transform duration-200 ${
+                className={`size-3 text-zinc-500 shrink-0 transition-transform duration-200 ${
                   isDropdownOpen ? "rotate-180" : ""
                 }`}
               />
@@ -302,7 +302,7 @@ export function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Hubungi Halo Lurah WhatsApp"
-              className="flex size-7.5 shrink-0 items-center justify-center rounded-full bg-emerald-600 text-white hover:bg-emerald-700 shadow-xs transition-colors"
+              className="flex size-8 shrink-0 items-center justify-center rounded-full bg-emerald-600 text-white hover:bg-emerald-700 shadow-xs transition-colors"
             >
               <Phone className="size-3.5" />
             </a>
@@ -318,7 +318,7 @@ export function Navbar() {
             }`}
           >
             <div className="overflow-hidden">
-              <div className="flex w-full flex-col gap-1 pt-1.5 pb-3 border-t border-zinc-200/80 mt-1">
+              <div className="flex w-full flex-col gap-1.5 pt-2 pb-3 border-t border-zinc-200/80 mt-1">
                 {NAV_ITEMS.map((item) => {
                   const Icon = item.icon
                   const isSelected = item.id === activeId
@@ -328,7 +328,7 @@ export function Navbar() {
                       key={item.id}
                       type="button"
                       onClick={() => handleSelect(item.id)}
-                      className={`flex w-full cursor-pointer items-center justify-between rounded-xl px-3 py-2 text-left text-xs font-medium transition-colors ${
+                      className={`flex w-full cursor-pointer items-center justify-between min-h-[44px] rounded-xl px-3.5 py-2.5 text-left text-xs font-medium transition-colors ${
                         isSelected
                           ? "bg-zinc-950 font-semibold text-white shadow-2xs"
                           : "text-zinc-600 hover:bg-zinc-100 hover:text-zinc-950"
@@ -337,7 +337,7 @@ export function Navbar() {
                       <div className="flex items-center gap-2.5">
                         {Icon && (
                           <Icon
-                            className={`size-3.5 ${
+                            className={`size-4 shrink-0 ${
                               isSelected ? "text-white" : "text-zinc-500"
                             }`}
                           />
@@ -345,20 +345,20 @@ export function Navbar() {
                         <span>{item.label}</span>
                       </div>
                       {isSelected && (
-                        <Check className="size-3.5 text-white" />
+                        <Check className="size-4 text-white shrink-0" />
                       )}
                     </button>
                   )
                 })}
 
-                <div className="pt-2 mt-1 border-t border-zinc-200/80 flex flex-col gap-2">
+                <div className="pt-2.5 mt-1 border-t border-zinc-200/80 flex flex-col gap-2">
                   <a
                     href="https://wa.me/6281244556677?text=Halo%20Pemerintah%20Kelurahan%20Walian%20Dua"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 w-full py-2 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold shadow-xs transition-colors"
+                    className="flex items-center justify-center gap-2 w-full min-h-[44px] py-2.5 px-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold shadow-xs transition-colors"
                   >
-                    <Phone className="size-3.5" />
+                    <Phone className="size-4" />
                     <span>Chat WhatsApp Lurah</span>
                   </a>
                 </div>

@@ -7,12 +7,18 @@ import {
   HeartHandshake, 
   Calendar, 
   UserCheck, 
-  X, 
   Maximize2,
-  Sparkles,
   Camera
 } from "lucide-react"
 import { GaleriWargaRecord } from "@/lib/db/schema"
+import { Badge } from "@/components/ui/badge"
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog"
 
 const INITIAL_FALLBACK_GALLERY: GaleriWargaRecord[] = [
   {
@@ -144,20 +150,20 @@ export function CitizenGallerySection() {
           </div>
 
           <div className="flex items-center gap-2 self-start md:self-end">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-border bg-card text-xs font-semibold text-foreground shadow-2xs">
+            <Badge variant="outline" className="px-3 py-1.5 text-xs font-semibold gap-1.5 shadow-2xs">
               <Camera className="size-3.5 text-emerald-600" />
               <span>{filteredItems.length} Dokumentasi</span>
-            </span>
+            </Badge>
           </div>
         </div>
 
-        {/* Category Filter Pills */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 no-scrollbar">
+        {/* Category Filter Pills (Responsive scroll on mobile) */}
+        <div className="flex items-center gap-2 overflow-x-auto pb-3 mb-8 no-scrollbar">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all border ${
+              className={`px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all border shrink-0 min-h-[40px] ${
                 activeCategory === cat
                   ? "bg-foreground text-background border-foreground shadow-xs"
                   : "bg-card text-muted-foreground border-border hover:text-foreground hover:border-foreground/30"
@@ -171,13 +177,12 @@ export function CitizenGallerySection() {
         {/* Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6">
           {filteredItems.map((item, index) => {
-            // Asymmetric layout for high visual engagement
             const isFeatured = index === 0
             const colSpan = isFeatured 
-              ? "lg:col-span-8" 
+              ? "lg:col-span-8 md:col-span-2" 
               : index === 1 
-              ? "lg:col-span-4" 
-              : "lg:col-span-6"
+              ? "lg:col-span-4 md:col-span-1" 
+              : "lg:col-span-6 md:col-span-1"
 
             return (
               <div
@@ -221,7 +226,7 @@ export function CitizenGallerySection() {
 
                   {/* Bottom Image Headline */}
                   <div className="absolute bottom-3.5 left-4 right-4 text-white">
-                    <h3 className={`${isFeatured ? "text-xl sm:text-2xl" : "text-base sm:text-lg"} font-bold tracking-tight text-white leading-snug line-clamp-2`}>
+                    <h3 className={`${isFeatured ? "text-lg sm:text-xl lg:text-2xl" : "text-base sm:text-lg"} font-bold tracking-tight text-white leading-snug line-clamp-2`}>
                       {item.title}
                     </h3>
                   </div>
@@ -254,61 +259,56 @@ export function CitizenGallerySection() {
           })}
         </div>
 
-        {/* Lightbox Modal */}
-        {selectedItem && (
-          <div
-            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-200"
-            onClick={() => setSelectedItem(null)}
-          >
-            <div
-              className="relative max-w-4xl w-full bg-card rounded-2xl border border-border shadow-2xl overflow-hidden"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button
-                onClick={() => setSelectedItem(null)}
-                className="absolute top-4 right-4 z-10 size-9 rounded-full bg-background/90 text-foreground flex items-center justify-center border border-border hover:bg-muted transition-colors"
-                aria-label="Tutup"
-              >
-                <X className="size-4" />
-              </button>
-
-              <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full bg-muted">
-                <Image
-                  src={selectedItem.image}
-                  alt={selectedItem.title}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 896px"
-                  className="object-contain"
-                  priority
-                />
-              </div>
-
-              <div className="p-6">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="text-xs font-semibold px-2.5 py-0.5 rounded bg-muted text-foreground border border-border">
-                    {selectedItem.category}
-                  </span>
-                  {selectedItem.highlight && (
-                    <span className="text-xs text-emerald-700 font-medium">
-                      • {selectedItem.highlight}
-                    </span>
-                  )}
+        {/* Accessible Lightbox Modal via shadcn */}
+        <Dialog
+          open={Boolean(selectedItem)}
+          onOpenChange={(open) => {
+            if (!open) setSelectedItem(null)
+          }}
+        >
+          <DialogContent className="sm:max-w-4xl max-h-[92vh] overflow-y-auto p-0 gap-0 overflow-hidden">
+            {selectedItem && (
+              <>
+                <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full bg-muted">
+                  <Image
+                    src={selectedItem.image}
+                    alt={selectedItem.title}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 896px"
+                    className="object-contain"
+                    priority
+                  />
                 </div>
-                <h3 className="text-xl font-bold text-foreground">
-                  {selectedItem.title}
-                </h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                  {selectedItem.description}
-                </p>
 
-                <div className="mt-4 pt-4 border-t border-border flex items-center justify-between text-xs text-muted-foreground">
-                  <span>Kontributor: <strong className="text-foreground">{selectedItem.author_or_contributor || "Warga Walian Dua"}</strong></span>
-                  {selectedItem.date && <span>Waktu: {selectedItem.date}</span>}
+                <div className="p-6 bg-card border-t border-border">
+                  <DialogHeader className="gap-1 mb-2">
+                    <div className="flex items-center gap-2 mb-1">
+                      <Badge variant="outline" className="text-xs font-semibold">
+                        {selectedItem.category}
+                      </Badge>
+                      {selectedItem.highlight && (
+                        <span className="text-xs text-emerald-700 font-medium">
+                          • {selectedItem.highlight}
+                        </span>
+                      )}
+                    </div>
+                    <DialogTitle className="text-xl sm:text-2xl font-bold text-foreground text-left">
+                      {selectedItem.title}
+                    </DialogTitle>
+                    <DialogDescription className="text-sm text-muted-foreground leading-relaxed text-left">
+                      {selectedItem.description}
+                    </DialogDescription>
+                  </DialogHeader>
+
+                  <div className="mt-4 pt-4 border-t border-border flex flex-wrap items-center justify-between gap-2 text-xs text-muted-foreground">
+                    <span>Kontributor: <strong className="text-foreground">{selectedItem.author_or_contributor || "Warga Walian Dua"}</strong></span>
+                    {selectedItem.date && <span>Waktu: {selectedItem.date}</span>}
+                  </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        )}
+              </>
+            )}
+          </DialogContent>
+        </Dialog>
 
       </div>
     </section>

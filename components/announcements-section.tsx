@@ -1,4 +1,5 @@
 import { Calendar, CheckCircle2, AlertTriangle, Award, HeartPulse } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
 
 const ANNOUNCEMENTS = [
   {
@@ -38,7 +39,7 @@ const ANNOUNCEMENTS = [
 
 export function AnnouncementsSection() {
   return (
-    <section className="py-16 md:py-24 border-b border-border bg-muted/10">
+    <section id="pengumuman" className="py-16 md:py-24 border-b border-border bg-muted/10 scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mb-12">
           <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-foreground">
@@ -49,9 +50,8 @@ export function AnnouncementsSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {ANNOUNCEMENTS.map((item) => {
-            const Icon = item.icon
             return (
               <div
                 key={item.id}
@@ -59,12 +59,12 @@ export function AnnouncementsSection() {
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-3">
-                    <span className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+                    <Badge variant="outline" className="text-[10px] uppercase font-semibold">
                       {item.tag}
-                    </span>
-                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full border border-border/80 bg-muted text-foreground">
+                    </Badge>
+                    <Badge variant="secondary" className="text-[10px] font-bold">
                       {item.priority}
-                    </span>
+                    </Badge>
                   </div>
 
                   <h3 className="text-base font-bold text-foreground leading-snug">
@@ -82,7 +82,7 @@ export function AnnouncementsSection() {
                 </div>
 
                 <div className="mt-6 pt-4 border-t border-border/50 flex items-center gap-2 text-xs text-emerald-600 font-semibold">
-                  <CheckCircle2 className="size-3.5" />
+                  <CheckCircle2 className="size-3.5 shrink-0" />
                   <span>Dikoordinasikan oleh Perangkat Kelurahan</span>
                 </div>
               </div>

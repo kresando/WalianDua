@@ -53,7 +53,7 @@ export function StatsStrip() {
               <div
                 key={stat.label}
                 className={`flex flex-col p-2.5 rounded-xl transition-all duration-200 hover:bg-muted/60 ${
-                  i === STATS.length - 1 ? "col-span-2 md:col-span-1" : ""
+                  i === STATS.length - 1 ? "col-span-2 md:col-span-2 lg:col-span-1" : ""
                 }`}
               >
                 <div className="flex items-center gap-2 text-muted-foreground mb-1.5">

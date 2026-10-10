@@ -74,11 +74,11 @@ export function HeroSection() {
             {/* Call To Action Buttons (Standard, Sharp, Purposeful) */}
             <motion.div
               variants={FADE_UP}
-              className="mt-8 flex flex-wrap items-center gap-3.5"
+              className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3"
             >
               <a
                 href="#layanan"
-                className="inline-flex items-center justify-center h-12 px-6 rounded-xl bg-zinc-950 text-white text-xs sm:text-sm font-semibold hover:bg-zinc-800 active:scale-[0.98] transition-all gap-2 shadow-xs group"
+                className="inline-flex items-center justify-center h-12 px-6 rounded-xl bg-zinc-950 text-white text-xs sm:text-sm font-semibold hover:bg-zinc-800 active:scale-[0.98] transition-all gap-2 shadow-xs group text-center"
               >
                 <span>Lihat Layanan Surat Warga</span>
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
@@ -86,41 +86,41 @@ export function HeroSection() {
 
               <a
                 href="#profil"
-                className="inline-flex items-center justify-center h-12 px-6 rounded-xl border border-border bg-background text-foreground text-xs sm:text-sm font-medium hover:bg-muted/60 active:scale-[0.98] transition-all shadow-2xs"
+                className="inline-flex items-center justify-center h-12 px-6 rounded-xl border border-border bg-background text-foreground text-xs sm:text-sm font-medium hover:bg-muted/60 active:scale-[0.98] transition-all shadow-2xs text-center"
               >
                 Profil Wilayah & Potensi
               </a>
             </motion.div>
 
-            {/* Typographic Civic Metrics Strip (3 Symmetrical Columns, No Wrap) */}
+            {/* Typographic Civic Metrics Strip (3 Symmetrical Columns) */}
             <motion.div
               variants={FADE_UP}
-              className="mt-12 pt-7 border-t border-border/80 grid grid-cols-3 gap-3 sm:gap-6 divide-x divide-border/80"
+              className="mt-12 pt-7 border-t border-border/80 grid grid-cols-3 gap-2 sm:gap-6 divide-x divide-border/80"
             >
-              <div className="pr-3 sm:pr-6 group/metric">
-                <div className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground tabular-nums whitespace-nowrap">
+              <div className="pr-2 sm:pr-6 group/metric">
+                <div className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-foreground tabular-nums whitespace-nowrap">
                   Rp 0
                 </div>
-                <div className="text-[11px] sm:text-xs text-muted-foreground font-medium mt-1 leading-snug whitespace-nowrap">
+                <div className="text-[11px] sm:text-xs text-muted-foreground font-medium mt-1 leading-snug">
                   Layanan Bebas Biaya
                 </div>
               </div>
 
-              <div className="px-3 sm:px-6 group/metric">
-                <div className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground whitespace-nowrap">
+              <div className="px-2 sm:px-6 group/metric">
+                <div className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-foreground whitespace-nowrap">
                   5 Lingkungan
                 </div>
-                <div className="text-[11px] sm:text-xs text-muted-foreground font-medium mt-1 leading-snug whitespace-nowrap">
+                <div className="text-[11px] sm:text-xs text-muted-foreground font-medium mt-1 leading-snug">
                   Kearifan Mapalus
                 </div>
               </div>
 
-              <div className="pl-3 sm:pl-6 group/metric">
-                <div className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground tabular-nums whitespace-nowrap">
+              <div className="pl-2 sm:pl-6 group/metric">
+                <div className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-foreground tabular-nums whitespace-nowrap">
                   100%
                 </div>
-                <div className="text-[11px] sm:text-xs text-muted-foreground font-medium mt-1 leading-snug whitespace-nowrap">
-                  Realisasi PBB-P2 (Lunas)
+                <div className="text-[11px] sm:text-xs text-muted-foreground font-medium mt-1 leading-snug">
+                  Realisasi PBB-P2 Lunas
                 </div>
               </div>
             </motion.div>

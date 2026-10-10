@@ -11,6 +11,10 @@ import {
 } from "lucide-react"
 import { KELURAHAN_DATA } from "@/lib/data/kelurahan-data"
 import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Textarea } from "@/components/ui/textarea"
+import { NativeSelect } from "@/components/ui/native-select"
 
 export function HaloLurahSection() {
   const { contact } = KELURAHAN_DATA
@@ -28,7 +32,7 @@ export function HaloLurahSection() {
     e.preventDefault()
     if (!formData.name.trim() || !formData.message.trim()) return
 
-    // Save report to SQLite database
+    // Save report to Supabase backend API
     fetch("/api/admin/pengaduan", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -51,9 +55,9 @@ export function HaloLurahSection() {
   }
 
   return (
-    <section id="pengaduan" className="py-16 md:py-24 border-b border-border bg-background">
+    <section id="pengaduan" className="py-16 md:py-24 border-b border-border bg-background scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           {/* Left Column: Office Details */}
           <div className="lg:col-span-5">
             <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-foreground">
@@ -63,39 +67,39 @@ export function HaloLurahSection() {
               Masyarakat dapat menyampaikan aduan, usulan pemeliharaan lingkungan, atau pertanyaan seputar pelayanan administrasi secara langsung dan transparan.
             </p>
 
-            {/* Office Info Card */}
-            <div className="mt-8 space-y-4">
-              <div className="p-4 rounded-xl border border-border bg-card flex items-start gap-3">
+            {/* Office Info Cards */}
+            <div className="mt-8 space-y-3.5">
+              <div className="p-4 rounded-xl border border-border bg-card flex items-start gap-3.5">
                 <MapPin className="size-5 text-foreground shrink-0 mt-0.5" />
                 <div>
                   <strong className="text-xs font-bold text-foreground block">
                     Alamat Kantor Kelurahan
                   </strong>
-                  <span className="text-xs text-muted-foreground leading-relaxed">
+                  <span className="text-xs text-muted-foreground leading-relaxed mt-0.5 block">
                     {contact.address}
                   </span>
                 </div>
               </div>
 
-              <div className="p-4 rounded-xl border border-border bg-card flex items-start gap-3">
+              <div className="p-4 rounded-xl border border-border bg-card flex items-start gap-3.5">
                 <Clock className="size-5 text-foreground shrink-0 mt-0.5" />
                 <div>
                   <strong className="text-xs font-bold text-foreground block">
                     Waktu Jam Pelayanan
                   </strong>
-                  <span className="text-xs text-muted-foreground leading-relaxed">
+                  <span className="text-xs text-muted-foreground leading-relaxed mt-0.5 block">
                     {contact.officeHours}
                   </span>
                 </div>
               </div>
 
-              <div className="p-4 rounded-xl border border-border bg-card flex items-start gap-3">
+              <div className="p-4 rounded-xl border border-border bg-card flex items-start gap-3.5">
                 <Phone className="size-5 text-foreground shrink-0 mt-0.5" />
                 <div>
                   <strong className="text-xs font-bold text-foreground block">
                     Telepon & WhatsApp Hotline
                   </strong>
-                  <span className="text-xs text-muted-foreground leading-relaxed block">
+                  <span className="text-xs text-muted-foreground leading-relaxed block mt-0.5">
                     WhatsApp: {contact.whatsapp} (Cepat Tanggap)
                   </span>
                   <span className="text-xs text-muted-foreground leading-relaxed block">
@@ -104,13 +108,13 @@ export function HaloLurahSection() {
                 </div>
               </div>
 
-              <div className="p-4 rounded-xl border border-border bg-card flex items-start gap-3">
+              <div className="p-4 rounded-xl border border-border bg-card flex items-start gap-3.5">
                 <Mail className="size-5 text-foreground shrink-0 mt-0.5" />
                 <div>
                   <strong className="text-xs font-bold text-foreground block">
                     Surat Elektronik Resmi
                   </strong>
-                  <span className="text-xs text-muted-foreground font-mono">
+                  <span className="text-xs text-muted-foreground font-mono mt-0.5 block">
                     {contact.email}
                   </span>
                 </div>
@@ -126,7 +130,7 @@ export function HaloLurahSection() {
                   <Phone className="size-4 text-emerald-600" />
                   Formulir Aspirasi & Lapor Warga
                 </h3>
-                <p className="mt-1 text-xs text-muted-foreground">
+                <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
                   Pesan Anda akan otomatis terformat rapi dan diteruskan ke kontak pengaduan WhatsApp Kelurahan Walian Dua.
                 </p>
               </div>
@@ -143,43 +147,46 @@ export function HaloLurahSection() {
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="text-xs font-semibold text-foreground block mb-1.5">
+                  <div className="space-y-1.5">
+                    <Label htmlFor="citizen-name" className="text-xs font-semibold text-foreground">
                       Nama Lengkap Pelapor *
-                    </label>
-                    <input
+                    </Label>
+                    <Input
+                      id="citizen-name"
                       type="text"
                       required
                       placeholder="Contoh: Toar Tumundo"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-3 py-2 rounded-lg border border-border bg-muted/20 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                      className="h-10 text-xs sm:text-sm bg-muted/20"
                     />
                   </div>
 
-                  <div>
-                    <label className="text-xs font-semibold text-foreground block mb-1.5">
+                  <div className="space-y-1.5">
+                    <Label htmlFor="citizen-phone" className="text-xs font-semibold text-foreground">
                       Nomor Telepon / WhatsApp
-                    </label>
-                    <input
+                    </Label>
+                    <Input
+                      id="citizen-phone"
                       type="tel"
                       placeholder="Contoh: 08123456789"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-3 py-2 rounded-lg border border-border bg-muted/20 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                      className="h-10 text-xs sm:text-sm bg-muted/20"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="text-xs font-semibold text-foreground block mb-1.5">
+                  <div className="space-y-1.5">
+                    <Label htmlFor="citizen-neighborhood" className="text-xs font-semibold text-foreground">
                       Asal Lingkungan
-                    </label>
-                    <select
+                    </Label>
+                    <NativeSelect
+                      id="citizen-neighborhood"
                       value={formData.neighborhood}
                       onChange={(e) => setFormData({ ...formData, neighborhood: e.target.value })}
-                      className="w-full px-3 py-2 rounded-lg border border-border bg-background text-xs sm:text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                      className="w-full [&>select]:h-10 [&>select]:text-xs sm:[&>select]:text-sm bg-muted/20"
                     >
                       <option value="Lingkungan I">Lingkungan I</option>
                       <option value="Lingkungan II">Lingkungan II</option>
@@ -187,17 +194,18 @@ export function HaloLurahSection() {
                       <option value="Lingkungan IV">Lingkungan IV</option>
                       <option value="Lingkungan V">Lingkungan V</option>
                       <option value="Warga Luar Walian Dua">Warga Luar / Umum</option>
-                    </select>
+                    </NativeSelect>
                   </div>
 
-                  <div>
-                    <label className="text-xs font-semibold text-foreground block mb-1.5">
+                  <div className="space-y-1.5">
+                    <Label htmlFor="citizen-category" className="text-xs font-semibold text-foreground">
                       Kategori Laporan
-                    </label>
-                    <select
+                    </Label>
+                    <NativeSelect
+                      id="citizen-category"
                       value={formData.category}
                       onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                      className="w-full px-3 py-2 rounded-lg border border-border bg-background text-xs sm:text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                      className="w-full [&>select]:h-10 [&>select]:text-xs sm:[&>select]:text-sm bg-muted/20"
                     >
                       <option value="Layanan Dokumen">Layanan Dokumen / Surat</option>
                       <option value="Drainase & Kebersihan">Drainase & Kebersihan</option>
@@ -205,28 +213,29 @@ export function HaloLurahSection() {
                       <option value="Bantuan Sosial">Bantuan Sosial & Kesejahteraan</option>
                       <option value="Ketentraman & Linmas">Ketentraman Lingkungan</option>
                       <option value="Aspirasi / Lainnya">Aspirasi / Saran Umum</option>
-                    </select>
+                    </NativeSelect>
                   </div>
                 </div>
 
-                <div>
-                  <label className="text-xs font-semibold text-foreground block mb-1.5">
+                <div className="space-y-1.5">
+                  <Label htmlFor="citizen-message" className="text-xs font-semibold text-foreground">
                     Isi Laporan / Aduan / Pertanyaan *
-                  </label>
-                  <textarea
+                  </Label>
+                  <Textarea
+                    id="citizen-message"
                     required
                     rows={4}
                     placeholder="Tuliskan keterangan detail laporan Anda..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-3 py-2 rounded-lg border border-border bg-muted/20 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring leading-relaxed"
+                    className="min-h-24 text-xs sm:text-sm bg-muted/20 leading-relaxed"
                   />
                 </div>
 
                 <div className="pt-2">
                   <Button
                     type="submit"
-                    className="w-full sm:w-auto h-10 px-6 text-xs font-semibold gap-2 bg-foreground text-background hover:bg-foreground/90"
+                    className="w-full sm:w-auto h-11 px-6 text-xs font-semibold gap-2 bg-foreground text-background hover:bg-foreground/90 active:scale-[0.98] transition-all"
                   >
                     <Send className="size-3.5" />
                     Kirim via WhatsApp Kelurahan

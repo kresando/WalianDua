@@ -30,7 +30,7 @@ export function OfficialsSection() {
   const staff = list.slice(1)
 
   return (
-    <section id="aparatur" className="py-16 md:py-24 border-b border-border bg-background">
+    <section id="aparatur" className="py-16 md:py-24 border-b border-border bg-background scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-3xl mb-12">
@@ -75,9 +75,9 @@ export function OfficialsSection() {
                   {lurah.name}
                 </h3>
                 {lurah.rank && (
-                  <span className="text-xs font-semibold px-2 py-0.5 rounded bg-muted text-foreground border border-border/80">
+                  <Badge variant="outline" className="text-xs font-semibold">
                     {lurah.rank}
-                  </span>
+                  </Badge>
                 )}
               </div>
               <span className="text-xs sm:text-sm text-muted-foreground font-semibold block mt-0.5">
@@ -119,9 +119,9 @@ export function OfficialsSection() {
                     {person.title}
                   </span>
                   {person.rank && (
-                    <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-muted text-muted-foreground">
+                    <Badge variant="secondary" className="text-[10px] font-mono">
                       {person.rank}
-                    </span>
+                    </Badge>
                   )}
                 </div>
 
