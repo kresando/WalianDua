@@ -190,7 +190,7 @@ export function Navbar() {
         <header
           role="tablist"
           aria-orientation="horizontal"
-          className={`hidden xl:flex absolute left-1/2 -translate-x-1/2 top-0 z-50 h-14 px-4 xl:px-5 bg-white/95 backdrop-blur-md text-zinc-900 select-none rounded-b-[24px] pointer-events-auto border-b border-x transition-all duration-300 ease-out items-center ${
+          className={`hidden xl:flex absolute left-[calc(50%-60px)] -translate-x-1/2 top-0 z-50 h-14 px-4 xl:px-5 bg-white/95 backdrop-blur-md text-zinc-900 select-none rounded-b-[24px] pointer-events-auto border-b border-x transition-all duration-300 ease-out items-center ${
             isScrolled
               ? "border-zinc-300/80 shadow-[0_8px_30px_-4px_rgba(0,0,0,0.1)]"
               : "border-zinc-200/80 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.06)]"
