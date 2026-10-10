@@ -103,7 +103,7 @@ export function FaqSection() {
 
             <div className="mt-8 pt-6 border-t border-border">
               <a
-                href="https://wa.me/6281244556677?text=Halo%20Kelurahan%20Walian%20Dua,%20saya%20memiliki%20pertanyaan%20mengenai%20pelayanan%20kelurahan"
+                href="https://wa.me/6285172340386?text=Halo%20Kelurahan%20Walian%20Dua,%20saya%20memiliki%20pertanyaan%20mengenai%20pelayanan%20kelurahan"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={buttonVariants({

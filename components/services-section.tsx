@@ -254,7 +254,7 @@ export function ServicesSection() {
                     Tutup
                   </Button>
                   <a
-                    href={`https://wa.me/6281244556677?text=Halo%20Kelurahan%20Walian%20Dua,%20saya%20ingin%20berkonsultasi%20mengenai%20syarat%20${encodeURIComponent(
+                    href={`https://wa.me/6285172340386?text=Halo%20Kelurahan%20Walian%20Dua,%20saya%20ingin%20berkonsultasi%20mengenai%20syarat%20${encodeURIComponent(
                       activeService.title
                     )}`}
                     target="_blank"

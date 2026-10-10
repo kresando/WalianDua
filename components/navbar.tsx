@@ -239,7 +239,7 @@ export function Navbar() {
             <div className="h-4 w-px bg-zinc-200" />
 
             <a
-              href="https://wa.me/6281244556677?text=Halo%20Pemerintah%20Kelurahan%20Walian%20Dua,%20saya%20ingin%20bertanya%20mengenai%20layanan%20kelurahan"
+              href="https://wa.me/6285172340386?text=Halo%20Pemerintah%20Kelurahan%20Walian%20Dua,%20saya%20ingin%20bertanya%20mengenai%20layanan%20kelurahan"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-xs font-semibold px-3.5 xl:px-4 py-2 rounded-full bg-emerald-600 text-white hover:bg-emerald-700 active:scale-[0.98] transition-all shadow-xs"
@@ -308,7 +308,7 @@ export function Navbar() {
 
             {/* Right Quick Halo Lurah Action */}
             <a
-              href="https://wa.me/6281244556677?text=Halo%20Pemerintah%20Kelurahan%20Walian%20Dua"
+              href="https://wa.me/6285172340386?text=Halo%20Pemerintah%20Kelurahan%20Walian%20Dua"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Hubungi Halo Lurah WhatsApp"
@@ -363,7 +363,7 @@ export function Navbar() {
 
                 <div className="pt-2.5 mt-1 border-t border-zinc-200/80 flex flex-col gap-2">
                   <a
-                    href="https://wa.me/6281244556677?text=Halo%20Pemerintah%20Kelurahan%20Walian%20Dua"
+                    href="https://wa.me/6285172340386?text=Halo%20Pemerintah%20Kelurahan%20Walian%20Dua"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 w-full min-h-[44px] py-2.5 px-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold shadow-xs transition-colors"

@@ -191,7 +191,7 @@ export const KELURAHAN_DATA: KelurahanInfo = {
     officeHours: "Senin - Jumat: 08:00 - 16:00 WITA",
     email: "kelurahan.waliandua@tomohon.go.id",
     phone: "(0431) 351001",
-    whatsapp: "0812-4455-6677",
+    whatsapp: "0851-7234-0386",
     googleMapsUrl: "https://maps.google.com/?q=Walian+Dua+Tomohon+Selatan",
   },
 }

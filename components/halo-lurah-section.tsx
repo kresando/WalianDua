@@ -50,7 +50,7 @@ export function HaloLurahSection() {
     )
 
     // Open WhatsApp in new tab
-    window.open(`https://wa.me/6281244556677?text=${waText}`, "_blank")
+    window.open(`https://wa.me/6285172340386?text=${waText}`, "_blank")
     setSubmitted(true)
   }
 
