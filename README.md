@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portal Resmi & Sistem Pelayanan Publik Kelurahan Walian Dua
 
-## Getting Started
+Portal layanan informasi publik dan sistem administrasi kelurahan berbasis web modern untuk Kelurahan Walian Dua, Kota Tomohon, Sulawesi Utara.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 Fitur Unggulan
+
+- **Portal Publik (Civic Portal)**:
+  - Profil kelurahan, visi misi, dan struktur aparatur kelurahan.
+  - Direktori informasi layanan administrasi kependudukan & perizinan.
+  - Galeri kegiatan masyarakat dan pengumuman resmi berkala.
+  - Formulir Halo Lurah (pengaduan & aspirasi warga) terintegrasi langsung dengan database.
+  - Desain responsif, accessible, dan ramah mobile berstandar UI/UX modern.
+
+- **Admin Dashboard**:
+  - Panel kontrol manajemen aparatur, galeri warga, layanan publik, pengaduan warga, dan pengumuman.
+  - Proteksi autentikasi berbasis HMAC-SHA256 session token dengan cookies HTTP-only, secure, samesite strict.
+  - Middleware / Proxy route protection untuk route `/admin/*` dan mutasi `/api/admin/*`.
+  - Rate limiting berbasis sliding window di level endpoint autentikasi dan API.
+  - Sanitasi file upload dengan verifikasi MIME magic bytes (PNG, JPEG, WebP).
+
+---
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js 16](https://nextjs.org/) (Turbopack, App Router)
+- **Library UI**: [React 19](https://react.dev/), [Tailwind CSS v4](https://tailwindcss.com/), [@base-ui/react](https://base-ui.com/), [Lucide React](https://lucide.dev/)
+- **Database**: [Supabase PostgreSQL](https://supabase.com/) dengan Row Level Security (RLS)
+- **Deployment**: [Vercel](https://vercel.com/)
+
+---
+
+## ⚙️ Konfigurasi Environment Variables
+
+Sebelum menjalankan aplikasi secara lokal atau melakukan deploy ke Vercel, pastikan konfigurasi variabel lingkungan berikut telah disiapkan:
+
+```env
+# Supabase Configuration
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOi...
+SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOi...
+
+# Authentication & Security
+SESSION_SECRET=your_super_strong_random_session_secret_32_characters_minimum
+ADMIN_SALT=your_admin_password_salt_hex_string
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 💻 Panduan Pengembangan Lokal
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Clone repositori**:
+   ```bash
+   git clone https://github.com/kresando/WalianDua.git
+   cd WalianDua
+   ```
 
-## Learn More
+2. **Install dependencies**:
+   ```bash
+   pnpm install
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+3. **Setup environment variables**:
+   ```bash
+   cp .env.example .env.local
+   # Isi kredensial Supabase dan Secret pada file .env.local
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. **Jalankan development server**:
+   ```bash
+   pnpm dev
+   ```
+   Buka [http://localhost:3000](http://localhost:3000) pada browser Anda.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+5. **Build test**:
+   ```bash
+   pnpm build
+   ```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🚢 Panduan Deploy ke Vercel
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Buka dashboard [Vercel](https://vercel.com/) dan import repository `kresando/WalianDua`.
+2. Pada bagian **Environment Variables**, tambahkan 5 variabel lingkungan berikut:
+   - `NEXT_PUBLIC_SUPABASE_URL`
+   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+   - `SUPABASE_SERVICE_ROLE_KEY`
+   - `SESSION_SECRET`
+   - `ADMIN_SALT`
+3. Klik **Deploy**. Vercel akan otomatis melakukan cloning cabang `main` dan menjalankan build Turbopack Next.js.
