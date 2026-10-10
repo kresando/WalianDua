@@ -5,6 +5,7 @@ import Image from "next/image"
 import { LayoutGroup } from "framer-motion"
 import {
   Home,
+  Bell,
   FileText,
   Landmark,
   Users,
@@ -25,6 +26,7 @@ import {
 
 const NAV_ITEMS: NotchItemData[] = [
   { id: "beranda", label: "Beranda", icon: Home },
+  { id: "pengumuman", label: "Pengumuman", icon: Bell },
   { id: "layanan", label: "Layanan Warga", icon: FileText },
   { id: "profil", label: "Profil & Wilayah", icon: Landmark },
   { id: "galeri-warga", label: "Galeri Warga", icon: Users },
@@ -39,7 +41,7 @@ export function Navbar() {
 
   // Scroll spy & scroll elevation detection
   React.useEffect(() => {
-    const sectionIds = ["beranda", "layanan", "profil", "galeri-warga", "faq"]
+    const sectionIds = ["beranda", "pengumuman", "layanan", "profil", "galeri-warga", "faq"]
 
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20)

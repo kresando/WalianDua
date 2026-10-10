@@ -54,6 +54,11 @@ export function Footer() {
                 </a>
               </li>
               <li>
+                <a href="#pengumuman" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Agenda & Pengumuman
+                </a>
+              </li>
+              <li>
                 <a href="#layanan" className="text-muted-foreground hover:text-foreground transition-colors">
                   Layanan Surat Mandiri
                 </a>
@@ -76,11 +81,6 @@ export function Footer() {
               <li>
                 <a href="#galeri-warga" className="text-muted-foreground hover:text-foreground transition-colors">
                   Galeri Kegiatan Warga
-                </a>
-              </li>
-              <li>
-                <a href="#pengumuman" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Agenda & Pengumuman
                 </a>
               </li>
             </ul>

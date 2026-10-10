@@ -26,23 +26,23 @@ export default function Home() {
         {/* 2. Key Figures & Demographics Strip */}
         <StatsStrip />
 
-        {/* 3. Core Citizen Public Services & Document Requirements */}
+        {/* 3. Citizen Announcements & Noticeboard */}
+        <AnnouncementsSection />
+
+        {/* 4. Core Citizen Public Services & Document Requirements */}
         <ServicesSection />
 
-        {/* 4. Geography, Boundaries, and Facilities Profile */}
+        {/* 5. Geography, Boundaries, and Facilities Profile */}
         <ProfileTerritory />
 
-        {/* 5. Potensi Unggulan & Kearifan Lokal Florikultura & Mapalus */}
+        {/* 6. Potensi Unggulan & Kearifan Lokal Florikultura & Mapalus */}
         <PotenciesSection />
 
-        {/* 6. Governance, Officials & LKK Community Bodies */}
+        {/* 7. Governance, Officials & LKK Community Bodies */}
         <OfficialsSection />
 
-        {/* 7. Galeri Warga & Kegiatan Komunitas Walian Dua */}
+        {/* 8. Galeri Warga & Kegiatan Komunitas Walian Dua */}
         <CitizenGallerySection />
-
-        {/* 8. Citizen Announcements & Noticeboard */}
-        <AnnouncementsSection />
 
         {/* 9. Citizen FAQ Accordion */}
         <FaqSection />
