@@ -7,7 +7,6 @@ import { ProfileTerritory } from "@/components/profile-territory"
 import { PotenciesSection } from "@/components/potencies-section"
 import { OfficialsSection } from "@/components/officials-section"
 import { CitizenGallerySection } from "@/components/citizen-gallery-section"
-import { MediaGallerySection } from "@/components/media-gallery-section"
 import { AnnouncementsSection } from "@/components/announcements-section"
 import { FaqSection } from "@/components/faq-section"
 import { HaloLurahSection } from "@/components/halo-lurah-section"
@@ -39,11 +38,8 @@ export default function Home() {
         {/* 6. Governance, Officials & LKK Community Bodies */}
         <OfficialsSection />
 
-        {/* 6. Galeri Warga & Kegiatan Komunitas Walian Dua */}
+        {/* 7. Galeri Warga & Kegiatan Komunitas Walian Dua */}
         <CitizenGallerySection />
-
-        {/* 7. Visual Media Gallery & Official Video Highlights */}
-        <MediaGallerySection />
 
         {/* 8. Citizen Announcements & Noticeboard */}
         <AnnouncementsSection />

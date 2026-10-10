@@ -74,8 +74,13 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#galeri" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Galeri Media & Video
+                <a href="#galeri-warga" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Galeri Kegiatan Warga
+                </a>
+              </li>
+              <li>
+                <a href="#pengumuman" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Agenda & Pengumuman
                 </a>
               </li>
             </ul>
