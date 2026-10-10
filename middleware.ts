@@ -97,12 +97,7 @@ export async function middleware(request: NextRequest) {
 
   // 3. Protect Admin API Routes (/api/admin/*)
   if (pathname.startsWith("/api/admin")) {
-    // A. Public citizen complaint submission (POST /api/admin/pengaduan)
-    if (pathname === "/api/admin/pengaduan" && request.method === "POST") {
-      return NextResponse.next()
-    }
-
-    // B. Public catalog read endpoints (GET /api/admin/aparatur, etc.)
+    // A. Public catalog read endpoints (GET /api/admin/aparatur, etc.)
     if (request.method === "GET") {
       const isPublicGet = PUBLIC_GET_ADMIN_APIS.some(
         (prefix) => pathname === prefix || pathname.startsWith(prefix + "/")

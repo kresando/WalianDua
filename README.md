@@ -10,11 +10,11 @@ Portal layanan informasi publik dan sistem administrasi kelurahan berbasis web m
   - Profil kelurahan, visi misi, dan struktur aparatur kelurahan.
   - Direktori informasi layanan administrasi kependudukan & perizinan.
   - Galeri kegiatan masyarakat dan pengumuman resmi berkala.
-  - Formulir Halo Lurah (pengaduan & aspirasi warga) terintegrasi langsung dengan database.
+  - Formulir Halo Lurah (pengaduan & aspirasi warga) terhubung langsung ke WhatsApp resmi Lurah.
   - Desain responsif, accessible, dan ramah mobile berstandar UI/UX modern.
 
 - **Admin Dashboard**:
-  - Panel kontrol manajemen aparatur, galeri warga, layanan publik, pengaduan warga, dan pengumuman.
+  - Panel kontrol manajemen aparatur, galeri warga, layanan publik, dan pengumuman warga.
   - Proteksi autentikasi berbasis HMAC-SHA256 session token dengan cookies HTTP-only, secure, samesite strict.
   - Middleware / Proxy route protection untuk route `/admin/*` dan mutasi `/api/admin/*`.
   - Rate limiting berbasis sliding window di level endpoint autentikasi dan API.

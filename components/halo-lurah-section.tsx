@@ -32,13 +32,6 @@ export function HaloLurahSection() {
     e.preventDefault()
     if (!formData.name.trim() || !formData.message.trim()) return
 
-    // Save report to Supabase backend API
-    fetch("/api/admin/pengaduan", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    }).catch((err) => console.error("Error saving aduan to DB:", err))
-
     // Construct direct WhatsApp message
     const waText = encodeURIComponent(
       `*Laporan / Aspirasi Warga Walian Dua*\n` +

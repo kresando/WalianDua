@@ -9,7 +9,6 @@ import {
   Camera,
   FileText,
   Bell,
-  MessageSquare,
   LogOut,
   ExternalLink,
   ShieldCheck,
@@ -59,7 +58,6 @@ const NAV_ITEMS: NavItem[] = [
   { href: "/admin/galeri-warga", label: "Galeri Warga", icon: Camera },
   { href: "/admin/layanan", label: "Layanan Publik", icon: FileText },
   { href: "/admin/pengumuman", label: "Pengumuman", icon: Bell },
-  { href: "/admin/pengaduan", label: "Aspirasi & Laporan", icon: MessageSquare },
 ]
 
 export default function AdminDashboardLayout({
