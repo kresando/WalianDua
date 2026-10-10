@@ -10,7 +10,7 @@ export function StatsStrip() {
       label: "Jumlah Penduduk",
       value: population.total.toLocaleString("id-ID"),
       unit: "Jiwa",
-      detail: `${population.religion.protestant} Kristen • ${population.religion.catholic} Katolik • ${population.religion.islam} Islam`,
+      detail: `${population.male.toLocaleString("id-ID")} Laki-laki • ${population.female.toLocaleString("id-ID")} Perempuan`,
       icon: Users,
     },
     {

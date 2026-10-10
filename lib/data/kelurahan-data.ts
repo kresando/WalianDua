@@ -31,6 +31,7 @@ export interface KelurahanInfo {
       buddhist: number
     }
     neighborhoodCount: number
+    neighborhoodDistribution?: { name: string; total: number }[]
     year: number
   }
   tax: {
@@ -145,19 +146,26 @@ export const KELURAHAN_DATA: KelurahanInfo = {
   distanceEnvironmentToOfficeKm: 0.5,
   travelTimeToOfficeMinutes: 5,
   population: {
-    total: 1733,
-    households: 495,
-    male: 889,
-    female: 844,
+    total: 1808,
+    households: 566,
+    male: 905,
+    female: 903,
     religion: {
-      protestant: 1310,
-      catholic: 388,
-      islam: 35,
-      hindu: 0,
+      protestant: 1312,
+      catholic: 385,
+      islam: 110,
+      hindu: 1,
       buddhist: 0,
     },
     neighborhoodCount: 5,
-    year: 2024,
+    neighborhoodDistribution: [
+      { name: "Lingkungan I", total: 362 },
+      { name: "Lingkungan II", total: 320 },
+      { name: "Lingkungan III", total: 368 },
+      { name: "Lingkungan IV", total: 313 },
+      { name: "Lingkungan V", total: 445 },
+    ],
+    year: 2026,
   },
   tax: {
     target2022: "Rp 52.373.581",

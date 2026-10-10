@@ -1,6 +1,6 @@
 import * as React from "react"
 import Image from "next/image"
-import { Navigation, Landmark, Church, School, Mountain, Activity, Award, History, Dumbbell } from "lucide-react"
+import { Navigation, Landmark, Church, School, Mountain, Activity, Award, History, Dumbbell, Users } from "lucide-react"
 import { KELURAHAN_DATA } from "@/lib/data/kelurahan-data"
 import { Badge } from "@/components/ui/badge"
 
@@ -18,7 +18,8 @@ export function ProfileTerritory() {
     inauguratedBy,
     firstLurah,
     facilities,
-    infrastructure
+    infrastructure,
+    population
   } = KELURAHAN_DATA
 
   const BOUNDARIES = [
@@ -38,7 +39,7 @@ export function ProfileTerritory() {
     {
       name: "Sarana Ibadah: 4 Gereja",
       type: "Rumah Ibadah",
-      detail: "Melayani 1.241 jemaat Kristen Protestan (termasuk GMIM Bukit Zaitun Tomohon IV) dan 368 umat Katolik dalam kerukunan penuh.",
+      detail: "Melayani 1.312 jemaat Kristen Protestan (termasuk GMIM Bukit Zaitun Tomohon IV), 385 umat Katolik, serta 110 umat Muslim dalam kerukunan penuh.",
       icon: Church,
     },
     {
@@ -118,6 +119,65 @@ export function ProfileTerritory() {
               <div className="p-3 rounded-lg bg-muted/40">
                 <span className="text-[11px] text-muted-foreground block font-medium">Panjang Jalan Aspal</span>
                 <span className="text-sm font-bold text-foreground tabular-nums">22.589,75 m²</span>
+              </div>
+            </div>
+
+            {/* Demografi Penduduk Resmi (DKB Semester 2) Card */}
+            <div className="p-5 rounded-xl border border-border bg-card">
+              <div className="flex items-center justify-between gap-2 mb-3">
+                <h3 className="text-sm font-bold tracking-tight text-foreground flex items-center gap-2">
+                  <Users className="size-4 text-foreground" />
+                  Demografi Penduduk Resmi (Data DKB Semester 2)
+                </h3>
+                <Badge variant="outline" className="text-[10px] font-semibold text-emerald-600 border-emerald-500/30 bg-emerald-500/10">
+                  Data Terverifikasi
+                </Badge>
+              </div>
+
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
+                <div className="p-3 rounded-lg bg-muted/40">
+                  <span className="text-[11px] text-muted-foreground block font-medium">Total Penduduk</span>
+                  <div className="flex items-baseline gap-1 mt-0.5">
+                    <span className="text-lg font-extrabold text-foreground tabular-nums">{population.total.toLocaleString("id-ID")}</span>
+                    <span className="text-xs text-muted-foreground font-semibold">Jiwa</span>
+                  </div>
+                </div>
+                <div className="p-3 rounded-lg bg-muted/40">
+                  <span className="text-[11px] text-muted-foreground block font-medium">Laki-Laki</span>
+                  <div className="flex items-baseline gap-1 mt-0.5">
+                    <span className="text-lg font-extrabold text-foreground tabular-nums">{population.male.toLocaleString("id-ID")}</span>
+                    <span className="text-xs text-muted-foreground font-semibold">Jiwa</span>
+                  </div>
+                </div>
+                <div className="p-3 rounded-lg bg-muted/40">
+                  <span className="text-[11px] text-muted-foreground block font-medium">Perempuan</span>
+                  <div className="flex items-baseline gap-1 mt-0.5">
+                    <span className="text-lg font-extrabold text-foreground tabular-nums">{population.female.toLocaleString("id-ID")}</span>
+                    <span className="text-xs text-muted-foreground font-semibold">Jiwa</span>
+                  </div>
+                </div>
+                <div className="p-3 rounded-lg bg-muted/40">
+                  <span className="text-[11px] text-muted-foreground block font-medium">Kepala Keluarga</span>
+                  <div className="flex items-baseline gap-1 mt-0.5">
+                    <span className="text-lg font-extrabold text-foreground tabular-nums">{population.households.toLocaleString("id-ID")}</span>
+                    <span className="text-xs text-muted-foreground font-semibold">KK</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Sebaran per Lingkungan */}
+              <div className="pt-3 border-t border-border/60">
+                <span className="text-[11px] font-semibold text-muted-foreground block mb-2">
+                  Distribusi Penduduk per Lingkungan:
+                </span>
+                <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 text-xs">
+                  {population.neighborhoodDistribution?.map((dist) => (
+                    <div key={dist.name} className="p-2 rounded-lg bg-muted/20 border border-border/40 text-center">
+                      <span className="text-[10px] text-muted-foreground block font-medium">{dist.name}</span>
+                      <strong className="text-xs text-foreground tabular-nums mt-0.5 block">{dist.total} Jiwa</strong>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
