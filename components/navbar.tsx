@@ -24,13 +24,17 @@ import {
   NotchCornerRightWing,
 } from "@/components/ui/adaptive-notch-navigation-bar"
 
-const NAV_ITEMS: NotchItemData[] = [
-  { id: "beranda", label: "Beranda", icon: Home },
-  { id: "pengumuman", label: "Pengumuman", icon: Bell },
-  { id: "layanan", label: "Layanan Warga", icon: FileText },
-  { id: "profil", label: "Profil & Wilayah", icon: Landmark },
-  { id: "galeri-warga", label: "Galeri Warga", icon: Users },
-  { id: "faq", label: "Tanya Jawab", icon: HelpCircle },
+interface NavItemExtended extends NotchItemData {
+  shortLabel?: string
+}
+
+const NAV_ITEMS: NavItemExtended[] = [
+  { id: "beranda", label: "Beranda", shortLabel: "Beranda", icon: Home },
+  { id: "pengumuman", label: "Pengumuman", shortLabel: "Pengumuman", icon: Bell },
+  { id: "layanan", label: "Layanan Warga", shortLabel: "Layanan", icon: FileText },
+  { id: "profil", label: "Profil & Wilayah", shortLabel: "Profil", icon: Landmark },
+  { id: "galeri-warga", label: "Galeri Warga", shortLabel: "Galeri", icon: Users },
+  { id: "faq", label: "Tanya Jawab", shortLabel: "Tanya Jawab", icon: HelpCircle },
 ]
 
 export function Navbar() {
@@ -123,14 +127,14 @@ export function Navbar() {
       {/* Desktop Scrim */}
       <div
         aria-hidden="true"
-        className={`hidden lg:block fixed top-0 left-0 right-0 h-20 pointer-events-none z-40 transition-opacity duration-300 bg-gradient-to-b from-white via-white via-60% to-transparent ${
+        className={`hidden xl:block fixed top-0 left-0 right-0 h-20 pointer-events-none z-40 transition-opacity duration-300 bg-gradient-to-b from-white via-white via-60% to-transparent ${
           isScrolled ? "opacity-100" : "opacity-0"
         }`}
       />
-      {/* Mobile Top Header Mask: Completely masks text when scrolling on mobile */}
+      {/* Mobile Top Header Mask: Completely masks text when scrolling on mobile & tablet */}
       <div
         aria-hidden="true"
-        className={`lg:hidden fixed top-0 left-0 right-0 h-16 pointer-events-none z-40 transition-all duration-200 ${
+        className={`xl:hidden fixed top-0 left-0 right-0 h-16 pointer-events-none z-40 transition-all duration-200 ${
           isScrolled
             ? "bg-white/98 backdrop-blur-md border-b border-zinc-200/80 shadow-xs opacity-100"
             : "bg-gradient-to-b from-white via-white/80 to-transparent opacity-90"
@@ -140,13 +144,13 @@ export function Navbar() {
       {/* Floating Notch Bar Container */}
       <div className="fixed top-0 left-0 right-0 z-50 pointer-events-none select-none">
         {/* ========================================================================= */}
-        {/* DESKTOP VIEW (>= 1024px / lg): 3-NOTCH ISLAND SYSTEM                      */}
+        {/* DESKTOP VIEW (>= 1280px / xl): 3-NOTCH ISLAND SYSTEM                      */}
         {/* ========================================================================= */}
 
         {/* 1. Left Logo Notch */}
         <aside
           aria-label="Brand logo notch"
-          className={`hidden lg:flex absolute left-0 top-0 z-50 h-14 px-5 xl:px-6 select-none items-center bg-white/95 backdrop-blur-md text-zinc-900 rounded-br-[24px] pointer-events-auto border-b border-r transition-all duration-300 ease-out ${
+          className={`hidden xl:flex absolute left-0 top-0 z-50 h-14 px-5 xl:px-6 select-none items-center bg-white/95 backdrop-blur-md text-zinc-900 rounded-br-[24px] pointer-events-auto border-b border-r transition-all duration-300 ease-out ${
             isScrolled
               ? "border-zinc-300/80 shadow-[0_8px_30px_-4px_rgba(0,0,0,0.1)]"
               : "border-zinc-200/80 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.06)]"
@@ -186,7 +190,7 @@ export function Navbar() {
         <header
           role="tablist"
           aria-orientation="horizontal"
-          className={`hidden lg:flex absolute left-1/2 -translate-x-1/2 top-0 z-50 h-14 px-4 xl:px-5 bg-white/95 backdrop-blur-md text-zinc-900 select-none rounded-b-[24px] pointer-events-auto border-b border-x transition-all duration-300 ease-out items-center ${
+          className={`hidden xl:flex absolute left-1/2 -translate-x-1/2 top-0 z-50 h-14 px-4 xl:px-5 bg-white/95 backdrop-blur-md text-zinc-900 select-none rounded-b-[24px] pointer-events-auto border-b border-x transition-all duration-300 ease-out items-center ${
             isScrolled
               ? "border-zinc-300/80 shadow-[0_8px_30px_-4px_rgba(0,0,0,0.1)]"
               : "border-zinc-200/80 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.06)]"
@@ -201,7 +205,7 @@ export function Navbar() {
                 <NotchItem
                   key={item.id}
                   id={item.id}
-                  label={item.label}
+                  label={item.shortLabel || item.label}
                   icon={item.icon}
                   badge={item.badge}
                   variant="light"
@@ -216,7 +220,7 @@ export function Navbar() {
         {/* 3. Right Action Notch */}
         <aside
           aria-label="Action notch"
-          className={`hidden lg:flex absolute right-0 top-0 z-50 h-14 px-5 xl:px-6 select-none items-center bg-white/95 backdrop-blur-md text-zinc-900 rounded-bl-[24px] pointer-events-auto border-b border-l transition-all duration-300 ease-out ${
+          className={`hidden xl:flex absolute right-0 top-0 z-50 h-14 px-5 xl:px-6 select-none items-center bg-white/95 backdrop-blur-md text-zinc-900 rounded-bl-[24px] pointer-events-auto border-b border-l transition-all duration-300 ease-out ${
             isScrolled
               ? "border-zinc-300/80 shadow-[0_8px_30px_-4px_rgba(0,0,0,0.1)]"
               : "border-zinc-200/80 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.06)]"
@@ -253,11 +257,11 @@ export function Navbar() {
         </aside>
 
         {/* ========================================================================= */}
-        {/* TABLET & MOBILE VIEW (< 1024px / lg): SINGLE COMPACT NOTCH ISLAND         */}
+        {/* TABLET & MOBILE VIEW (< 1280px / xl): SINGLE COMPACT NOTCH ISLAND         */}
         {/* ========================================================================= */}
         <div
           ref={containerRef}
-          className={`lg:hidden absolute top-0 left-1/2 -translate-x-1/2 z-50 flex flex-col bg-white text-zinc-900 select-none rounded-b-[20px] pointer-events-auto px-3 sm:px-4 border-b border-x transition-all duration-300 ease-out w-[94vw] max-w-md sm:w-auto ${
+          className={`xl:hidden absolute top-0 left-1/2 -translate-x-1/2 z-50 flex flex-col bg-white text-zinc-900 select-none rounded-b-[20px] pointer-events-auto px-2.5 sm:px-4 border-b border-x transition-all duration-300 ease-out w-[95vw] max-w-md sm:w-auto ${
             isScrolled
               ? "border-zinc-300/80 shadow-[0_8px_30px_-4px_rgba(0,0,0,0.12)]"
               : "border-zinc-200/80 shadow-lg"
@@ -267,7 +271,7 @@ export function Navbar() {
           <NotchRightWing position="top" className="text-white size-3 sm:size-4" />
 
           {/* Unified Horizontal Bar */}
-          <div className="flex h-13 items-center justify-between gap-3 sm:gap-4 py-1">
+          <div className="flex h-13 items-center justify-between gap-2 sm:gap-4 py-1">
             {/* Left Logo */}
             <a
               href="#beranda"
@@ -275,7 +279,7 @@ export function Navbar() {
                 e.preventDefault()
                 handleSelect("beranda")
               }}
-              className="flex shrink-0 items-center gap-2"
+              className="flex shrink-0 items-center gap-1.5 sm:gap-2"
             >
               <Image
                 src="/images/logo-tomohon.png"
@@ -295,12 +299,12 @@ export function Navbar() {
               aria-expanded={isDropdownOpen}
               aria-label="Buka menu navigasi"
               onClick={() => setIsDropdownOpen((prev) => !prev)}
-              className="flex h-8.5 items-center justify-center gap-1.5 rounded-full px-2.5 sm:px-3 text-xs font-semibold text-zinc-900 hover:bg-zinc-100 transition-colors shrink min-w-0"
+              className="flex h-9 items-center justify-center gap-1.5 rounded-full px-2 sm:px-3 text-xs font-semibold text-zinc-900 hover:bg-zinc-100 transition-colors shrink min-w-0"
             >
               {activeItem?.icon && (
                 <activeItem.icon className="size-3.5 text-zinc-500 shrink-0" />
               )}
-              <span className="truncate max-w-[110px] sm:max-w-none">{activeItem?.label}</span>
+              <span className="truncate max-w-[100px] sm:max-w-none">{activeItem?.label}</span>
               <ChevronDown
                 className={`size-3 text-zinc-500 shrink-0 transition-transform duration-200 ${
                   isDropdownOpen ? "rotate-180" : ""
@@ -314,9 +318,10 @@ export function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Hubungi Halo Lurah WhatsApp"
-              className="flex size-8 shrink-0 items-center justify-center rounded-full bg-emerald-600 text-white hover:bg-emerald-700 shadow-xs transition-colors"
+              className="flex h-9 shrink-0 items-center justify-center rounded-full bg-emerald-600 text-white hover:bg-emerald-700 shadow-xs transition-colors px-2.5 sm:px-3 gap-1.5"
             >
               <Phone className="size-3.5" />
+              <span className="hidden sm:inline text-xs font-semibold">Halo Lurah</span>
             </a>
           </div>
 
@@ -330,7 +335,7 @@ export function Navbar() {
             }`}
           >
             <div className="overflow-hidden">
-              <div className="flex w-full flex-col gap-1.5 pt-2 pb-3 border-t border-zinc-200/80 mt-1">
+              <div className="flex w-full flex-col gap-1.5 pt-2 pb-3 border-t border-zinc-200/80 mt-1 max-h-[calc(100vh-80px)] overflow-y-auto">
                 {NAV_ITEMS.map((item) => {
                   const Icon = item.icon
                   const isSelected = item.id === activeId
