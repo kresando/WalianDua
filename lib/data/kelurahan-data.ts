@@ -496,9 +496,9 @@ export const ASSET_CATALOGUE: MediaAsset[] = [
     title: "Pesona Florikultura Bunga Krisan",
     type: "image",
     src: "/images/bunga-tomohon.jpg",
-    alt: "Bunga krisan mekar segar",
-    caption: "Bunga potong berkualitas tinggi yang dibudidayakan oleh para petani hortikultura di Tomohon.",
-    credit: "Unsplash Curated Collection",
+    alt: "Kebun bunga krisan mekar segar di dataran tinggi Tomohon",
+    caption: "Hamparan kebun bunga krisan mekar segar yang dibudidayakan oleh para petani florikultura Tomohon.",
+    credit: "Wikimedia Commons",
     category: "Florikultura",
   },
   {
