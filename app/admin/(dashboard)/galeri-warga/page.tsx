@@ -536,7 +536,7 @@ export default function GaleriWargaAdminPage() {
                   id="highlight"
                   value={form.highlight}
                   onChange={(e) => setForm({ ...form, highlight: e.target.value })}
-                  placeholder="Mapalus 4 Lingkungan / Panen Raya"
+                  placeholder="Mapalus 5 Lingkungan / Panen Raya"
                   className="h-9 text-xs sm:text-sm"
                 />
               </div>

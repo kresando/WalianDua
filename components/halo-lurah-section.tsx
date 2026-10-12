@@ -63,7 +63,9 @@ export function HaloLurahSection() {
             {/* Office Info Cards */}
             <div className="mt-8 space-y-3.5">
               <div className="p-4 rounded-xl border border-border bg-card flex items-start gap-3.5">
-                <MapPin className="size-5 text-foreground shrink-0 mt-0.5" />
+                <div className="size-9 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0 mt-0.5">
+                  <MapPin className="size-4.5" />
+                </div>
                 <div>
                   <strong className="text-xs font-bold text-foreground block">
                     Alamat Kantor Kelurahan
@@ -75,7 +77,9 @@ export function HaloLurahSection() {
               </div>
 
               <div className="p-4 rounded-xl border border-border bg-card flex items-start gap-3.5">
-                <Clock className="size-5 text-foreground shrink-0 mt-0.5" />
+                <div className="size-9 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0 mt-0.5">
+                  <Clock className="size-4.5" />
+                </div>
                 <div>
                   <strong className="text-xs font-bold text-foreground block">
                     Waktu Jam Pelayanan
@@ -87,7 +91,9 @@ export function HaloLurahSection() {
               </div>
 
               <div className="p-4 rounded-xl border border-border bg-card flex items-start gap-3.5">
-                <Phone className="size-5 text-foreground shrink-0 mt-0.5" />
+                <div className="size-9 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0 mt-0.5">
+                  <Phone className="size-4.5" />
+                </div>
                 <div>
                   <strong className="text-xs font-bold text-foreground block">
                     Telepon & WhatsApp Hotline
@@ -102,7 +108,9 @@ export function HaloLurahSection() {
               </div>
 
               <div className="p-4 rounded-xl border border-border bg-card flex items-start gap-3.5">
-                <Mail className="size-5 text-foreground shrink-0 mt-0.5" />
+                <div className="size-9 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0 mt-0.5">
+                  <Mail className="size-4.5" />
+                </div>
                 <div>
                   <strong className="text-xs font-bold text-foreground block">
                     Surat Elektronik Resmi
@@ -228,7 +236,7 @@ export function HaloLurahSection() {
                 <div className="pt-2">
                   <Button
                     type="submit"
-                    className="w-full sm:w-auto h-11 px-6 text-xs font-semibold gap-2 bg-foreground text-background hover:bg-foreground/90 active:scale-[0.98] transition-all"
+                    className="w-full sm:w-auto h-11 px-6 text-xs font-semibold gap-2 bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm active:scale-[0.98] transition-all"
                   >
                     <Send className="size-3.5" />
                     Kirim via WhatsApp Kelurahan

@@ -176,7 +176,7 @@ export function Navbar() {
               <span className="text-[10px] uppercase tracking-wider text-zinc-400 font-semibold leading-tight">
                 Kota Tomohon
               </span>
-              <span className="text-sm font-bold text-zinc-950 tracking-tight leading-tight group-hover:text-emerald-700 transition-colors">
+              <span className="text-sm font-bold text-zinc-950 tracking-tight leading-tight group-hover:text-primary transition-colors">
                 Walian Dua
               </span>
             </div>
@@ -248,9 +248,9 @@ export function Navbar() {
               href="https://wa.me/6285172340386?text=Halo%20Pemerintah%20Kelurahan%20Walian%20Dua,%20saya%20ingin%20bertanya%20mengenai%20layanan%20kelurahan"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-xs font-semibold px-3.5 xl:px-4 py-2 rounded-full bg-emerald-600 text-white hover:bg-emerald-700 active:scale-[0.98] transition-all shadow-xs"
+              className="inline-flex items-center gap-2 text-xs font-semibold px-3.5 xl:px-4 py-2 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 active:scale-[0.98] transition-all shadow-xs"
             >
-              <Phone className="size-3.5 text-white" />
+              <Phone className="size-3.5 text-primary-foreground" />
               <span>Halo Lurah</span>
             </a>
           </div>
@@ -318,7 +318,7 @@ export function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Hubungi Halo Lurah WhatsApp"
-              className="flex h-9 shrink-0 items-center justify-center rounded-full bg-emerald-600 text-white hover:bg-emerald-700 shadow-xs transition-colors px-2.5 sm:px-3 gap-1.5"
+              className="flex h-9 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-xs transition-colors px-2.5 sm:px-3 gap-1.5"
             >
               <Phone className="size-3.5" />
               <span className="hidden sm:inline text-xs font-semibold">Halo Lurah</span>
@@ -347,7 +347,7 @@ export function Navbar() {
                       onClick={() => handleSelect(item.id)}
                       className={`flex w-full cursor-pointer items-center justify-between min-h-[44px] rounded-xl px-3.5 py-2.5 text-left text-xs font-medium transition-colors ${
                         isSelected
-                          ? "bg-zinc-950 font-semibold text-white shadow-2xs"
+                          ? "bg-primary font-semibold text-primary-foreground shadow-2xs"
                           : "text-zinc-600 hover:bg-zinc-100 hover:text-zinc-950"
                       }`}
                     >
@@ -355,14 +355,14 @@ export function Navbar() {
                         {Icon && (
                           <Icon
                             className={`size-4 shrink-0 ${
-                              isSelected ? "text-white" : "text-zinc-500"
+                              isSelected ? "text-primary-foreground" : "text-zinc-500"
                             }`}
                           />
                         )}
                         <span>{item.label}</span>
                       </div>
                       {isSelected && (
-                        <Check className="size-4 text-white shrink-0" />
+                        <Check className="size-4 text-primary-foreground shrink-0" />
                       )}
                     </button>
                   )
@@ -373,7 +373,7 @@ export function Navbar() {
                     href="https://wa.me/6285172340386?text=Halo%20Pemerintah%20Kelurahan%20Walian%20Dua"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 w-full min-h-[44px] py-2.5 px-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold shadow-xs transition-colors"
+                    className="flex items-center justify-center gap-2 w-full min-h-[44px] py-2.5 px-3.5 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground text-xs font-semibold shadow-xs transition-colors"
                   >
                     <Phone className="size-4" />
                     <span>Chat WhatsApp Lurah</span>

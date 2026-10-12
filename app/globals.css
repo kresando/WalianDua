@@ -49,72 +49,95 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
+  /* Surface Layering (Warm Mineral Canvas & Crisp Elevated Card) */
+  --background: oklch(0.985 0.004 95);           /* Canvas mineral hangat (#fbfaf7) */
+  --foreground: oklch(0.185 0.02 156);           /* Pine Slate pekat berwibawa (#17231c) */
+  --card: oklch(1 0 0);                          /* Surface-1: Kartu putih bersih di atas canvas */
+  --card-foreground: oklch(0.185 0.02 156);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --popover-foreground: oklch(0.185 0.02 156);
+
+  /* Primary Brand: Deep Highland Pine Tomohon */
+  --primary: oklch(0.33 0.082 156.4);            /* Hutan Pinus Walian Dua (#134e3d) */
+  --primary-foreground: oklch(0.985 0.006 95);   /* Warm Off-White kontras 9.5:1 (WCAG AAA) */
+
+  /* Secondary: Highland Mist Tint */
+  --secondary: oklch(0.952 0.018 156.4);         /* Kabut lembut pegunungan (#eaf1ed) */
+  --secondary-foreground: oklch(0.24 0.065 156.4);/* Pinus gelap (#153c30) */
+
+  /* Muted Text & Backgrounds */
+  --muted: oklch(0.96 0.008 150);                /* Surface Muted sejuk (#f1f4f2) */
+  --muted-foreground: oklch(0.48 0.02 156);      /* Abu-abu ber-undertone pinus lembut (WCAG AA > 4.6:1) */
+
+  /* Accent: Warm Earth & Wood Minahasa */
+  --accent: oklch(0.94 0.035 72);                /* Sentuhan Ochre kayu rumah panggung (#faefe0) */
+  --accent-foreground: oklch(0.38 0.12 65);      /* Warm Ochre pekat (#7c3e06) */
+
+  /* Semantic Statuses */
+  --destructive: oklch(0.57 0.22 27.5);          /* Crimson Red */
+  --border: oklch(0.91 0.01 150);                /* Garis pembatas berkarakter (#e4e9e6) */
+  --input: oklch(0.91 0.01 150);
+  --ring: oklch(0.42 0.08 156.4);                /* Focus ring Deep Pine */
+
+  /* Chart Colors (Berkarakter & Harmonis) */
+  --chart-1: oklch(0.38 0.09 156);               /* Deep Pine (Demografi Utama) */
+  --chart-2: oklch(0.68 0.14 70);                /* Warm Ochre (Realisasi Pajak PBB-P2) */
+  --chart-3: oklch(0.58 0.12 210);               /* Linow Hydrothermal Teal (Fasilitas & Air) */
+  --chart-4: oklch(0.64 0.15 35);                /* Terracotta Red (Infrastruktur & Jalan) */
+  --chart-5: oklch(0.75 0.12 85);                /* Chrysanthemum Gold (Florikultura TIFF) */
+
+  --radius: 0.75rem;
+
+  /* Sidebar Tokens (Admin Panel) */
+  --sidebar: oklch(0.985 0.006 156);
+  --sidebar-foreground: oklch(0.185 0.02 156);
+  --sidebar-primary: oklch(0.33 0.082 156.4);
+  --sidebar-primary-foreground: oklch(0.985 0.006 95);
+  --sidebar-accent: oklch(0.952 0.018 156.4);
+  --sidebar-accent-foreground: oklch(0.24 0.065 156.4);
+  --sidebar-border: oklch(0.91 0.01 150);
+  --sidebar-ring: oklch(0.42 0.08 156.4);
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --background: oklch(0.14 0.018 156);           /* Malam Pegunungan Lokon (#101814) */
+  --foreground: oklch(0.96 0.008 156);           /* Putih halimun sejuk (#f1f6f3) */
+  --card: oklch(0.18 0.022 156);                 /* Surface Card gelap berlapis (#15231c) */
+  --card-foreground: oklch(0.96 0.008 156);
+  --popover: oklch(0.21 0.024 156);
+  --popover-foreground: oklch(0.96 0.008 156);
+
+  --primary: oklch(0.74 0.11 156.4);             /* Sage Pine Luminous (#42bd95) */
+  --primary-foreground: oklch(0.12 0.02 156);    /* Hitam pekat */
+
+  --secondary: oklch(0.24 0.025 156.4);
+  --secondary-foreground: oklch(0.92 0.01 156);
+
+  --muted: oklch(0.22 0.018 156);
+  --muted-foreground: oklch(0.68 0.02 156);
+
+  --accent: oklch(0.25 0.035 70);                /* Amber gelap hangat */
+  --accent-foreground: oklch(0.88 0.12 75);      /* Emas krisan berkilau */
+
+  --destructive: oklch(0.68 0.20 25);
+  --border: oklch(0.28 0.02 156 / 70%);
+  --input: oklch(0.28 0.02 156 / 70%);
+  --ring: oklch(0.74 0.11 156.4);
+
+  --chart-1: oklch(0.74 0.11 156.4);
+  --chart-2: oklch(0.78 0.14 70);
+  --chart-3: oklch(0.68 0.12 210);
+  --chart-4: oklch(0.72 0.14 35);
+  --chart-5: oklch(0.85 0.12 85);
+
+  --sidebar: oklch(0.16 0.02 156);
+  --sidebar-foreground: oklch(0.96 0.008 156);
+  --sidebar-primary: oklch(0.74 0.11 156.4);
+  --sidebar-primary-foreground: oklch(0.12 0.02 156);
+  --sidebar-accent: oklch(0.24 0.025 156.4);
+  --sidebar-accent-foreground: oklch(0.92 0.01 156);
+  --sidebar-border: oklch(0.28 0.02 156 / 70%);
+  --sidebar-ring: oklch(0.74 0.11 156.4);
 }
 
 @layer base {
@@ -132,7 +155,7 @@
     scroll-behavior: smooth;
   }
   ::selection {
-    background-color: oklch(0.205 0 0);
-    color: oklch(0.985 0 0);
+    background-color: var(--primary);
+    color: var(--primary-foreground);
   }
 }

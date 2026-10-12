@@ -76,15 +76,15 @@ export function ServicesSection() {
                 onClick={() => setSelectedCategory(cat.id)}
                 className={`px-3.5 py-2 rounded-xl text-xs font-medium transition-all duration-200 active:scale-[0.98] flex items-center gap-1.5 shrink-0 min-h-[40px] ${
                   selectedCategory === cat.id
-                    ? "bg-foreground text-background shadow-xs font-semibold"
-                    : "bg-muted/50 text-muted-foreground hover:text-foreground hover:bg-muted"
+                    ? "bg-primary text-primary-foreground shadow-xs font-semibold"
+                    : "bg-card text-muted-foreground border border-border/80 hover:text-foreground hover:bg-secondary/60"
                 }`}
               >
                 <span>{cat.label}</span>
                 <span
                   className={`px-1.5 py-0.2 rounded text-[10px] tabular-nums ${
                     selectedCategory === cat.id
-                      ? "bg-background/20 text-background"
+                      ? "bg-primary-foreground/20 text-primary-foreground"
                       : "bg-muted-foreground/15 text-muted-foreground"
                   }`}
                 >
@@ -231,7 +231,7 @@ export function ServicesSection() {
                       key={idx}
                       className="flex items-start gap-3 p-3 rounded-lg border border-border/40 bg-muted/20 text-xs text-muted-foreground"
                     >
-                      <span className="size-5 rounded-md bg-foreground text-background flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">
+                      <span className="size-5 rounded-md bg-primary text-primary-foreground flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5 shadow-2xs">
                         {idx + 1}
                       </span>
                       <span className="leading-relaxed text-foreground">{step}</span>

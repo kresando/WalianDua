@@ -78,7 +78,7 @@ export function HeroSection() {
             >
               <a
                 href="#layanan"
-                className="inline-flex items-center justify-center h-11 sm:h-12 px-6 rounded-xl bg-zinc-950 text-white text-xs sm:text-sm font-semibold hover:bg-zinc-800 active:scale-[0.98] transition-all gap-2 shadow-xs group text-center"
+                className="inline-flex items-center justify-center h-11 sm:h-12 px-6 rounded-xl bg-primary text-primary-foreground text-xs sm:text-sm font-semibold hover:bg-primary/90 active:scale-[0.98] transition-all gap-2 shadow-sm group text-center"
               >
                 <span>Lihat Layanan Surat Warga</span>
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
@@ -86,7 +86,7 @@ export function HeroSection() {
 
               <a
                 href="#profil"
-                className="inline-flex items-center justify-center h-11 sm:h-12 px-6 rounded-xl border border-border bg-background text-foreground text-xs sm:text-sm font-medium hover:bg-muted/60 active:scale-[0.98] transition-all shadow-2xs text-center"
+                className="inline-flex items-center justify-center h-11 sm:h-12 px-6 rounded-xl border border-border bg-card text-foreground text-xs sm:text-sm font-medium hover:bg-secondary/60 hover:text-secondary-foreground active:scale-[0.98] transition-all shadow-2xs text-center"
               >
                 Profil Wilayah & Potensi
               </a>
@@ -99,8 +99,13 @@ export function HeroSection() {
             >
               {/* Metric 1 */}
               <div className="pr-1.5 sm:pr-6 group/metric min-w-0 overflow-hidden">
-                <div className="text-lg sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-foreground tabular-nums">
-                  Rp 0
+                <div className="flex items-baseline gap-1">
+                  <span className="text-lg sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-foreground tabular-nums">
+                    Rp 0
+                  </span>
+                  <span className="hidden sm:inline-block text-[10px] font-bold text-emerald-800 dark:text-emerald-300 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">
+                    Gratis
+                  </span>
                 </div>
                 <div className="text-[10px] sm:text-xs text-muted-foreground font-medium mt-0.5 sm:mt-1 leading-snug">
                   Layanan Bebas Biaya
@@ -122,8 +127,13 @@ export function HeroSection() {
 
               {/* Metric 3 */}
               <div className="pl-1.5 sm:pl-6 group/metric min-w-0 overflow-hidden">
-                <div className="text-lg sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-foreground tabular-nums">
-                  100%
+                <div className="flex items-baseline gap-1">
+                  <span className="text-lg sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-foreground tabular-nums">
+                    100%
+                  </span>
+                  <span className="hidden sm:inline-block text-[10px] font-bold text-amber-800 dark:text-amber-300 bg-amber-500/10 px-1.5 py-0.5 rounded border border-amber-500/20">
+                    Lunas
+                  </span>
                 </div>
                 <div className="text-[10px] sm:text-xs text-muted-foreground font-medium mt-0.5 sm:mt-1 leading-snug">
                   Realisasi PBB-P2

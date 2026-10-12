@@ -233,9 +233,9 @@ export const NotchItem = forwardRef<HTMLButtonElement, NotchItemProps>(
           "relative flex h-9 shrink-0 cursor-pointer items-center gap-2 rounded-full px-3.5 text-sm font-medium transition-all duration-200 outline-none select-none whitespace-nowrap active:scale-[0.98]",
           isLight
             ? cn(
-                "focus-visible:ring-2 focus-visible:ring-zinc-950 focus-visible:ring-offset-1",
+                "focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1",
                 isActive
-                  ? "font-semibold text-white"
+                  ? "font-semibold text-primary-foreground"
                   : "text-zinc-600 hover:text-zinc-950 hover:bg-zinc-100/80"
               )
             : cn(
@@ -255,7 +255,7 @@ export const NotchItem = forwardRef<HTMLButtonElement, NotchItemProps>(
             className={cn(
               "absolute inset-0 rounded-full",
               isLight
-                ? "bg-zinc-950 text-white shadow-xs"
+                ? "bg-primary text-primary-foreground shadow-xs"
                 : "bg-zinc-800 dark:bg-zinc-300"
             )}
             transition={{
@@ -274,7 +274,7 @@ export const NotchItem = forwardRef<HTMLButtonElement, NotchItemProps>(
                 "size-4 shrink-0 transition-colors",
                 isLight
                   ? isActive
-                    ? "text-white"
+                    ? "text-primary-foreground"
                     : "text-zinc-500 group-hover:text-zinc-900"
                   : isActive
                   ? "text-zinc-50 dark:text-zinc-950"

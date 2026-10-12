@@ -12,6 +12,7 @@ export function StatsStrip() {
       unit: "Jiwa",
       detail: `${population.male.toLocaleString("id-ID")} Laki-laki • ${population.female.toLocaleString("id-ID")} Perempuan`,
       icon: Users,
+      badgeClass: "bg-primary/10 text-primary",
     },
     {
       label: "Kepala Keluarga (KK)",
@@ -19,6 +20,7 @@ export function StatsStrip() {
       unit: "KK",
       detail: "100% rumah tangga berlistrik aktif",
       icon: Home,
+      badgeClass: "bg-primary/10 text-primary",
     },
     {
       label: "Pembagian Wilayah",
@@ -26,6 +28,7 @@ export function StatsStrip() {
       unit: "Lingkungan",
       detail: "Dipimpin 5 Kepala Lingkungan (Pala)",
       icon: MapPin,
+      badgeClass: "bg-primary/10 text-primary",
     },
     {
       label: "Realisasi Pajak PBB-P2",
@@ -33,6 +36,7 @@ export function StatsStrip() {
       unit: "Lunas",
       detail: "510 Wajib Pajak (Rp 52,37 Juta)",
       icon: Award,
+      badgeClass: "bg-amber-500/15 text-amber-700 dark:text-amber-400",
     },
     {
       label: "Rentang Kendali Warga",
@@ -40,11 +44,12 @@ export function StatsStrip() {
       unit: "km",
       detail: `± 5 mnt ke kantor lurah • ${distanceToCamatKm} km ke camat`,
       icon: Compass,
+      badgeClass: "bg-sky-500/10 text-sky-700 dark:text-sky-400",
     },
   ]
 
   return (
-    <section className="bg-muted/30 border-b border-border py-8">
+    <section className="bg-secondary/35 border-b border-border py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8">
           {STATS.map((stat, i) => {
@@ -52,13 +57,15 @@ export function StatsStrip() {
             return (
               <div
                 key={stat.label}
-                className={`flex flex-col p-2.5 rounded-xl transition-all duration-200 hover:bg-muted/60 ${
+                className={`flex flex-col p-3 rounded-xl transition-all duration-200 hover:bg-card/80 hover:shadow-2xs ${
                   i === STATS.length - 1 ? "col-span-2 md:col-span-2 lg:col-span-1" : ""
                 }`}
               >
-                <div className="flex items-center gap-2 text-muted-foreground mb-1.5">
-                  <Icon className="size-4 shrink-0 text-foreground" />
-                  <span className="text-xs font-medium">{stat.label}</span>
+                <div className="flex items-center gap-2 mb-2">
+                  <div className={`size-7 rounded-lg flex items-center justify-center shrink-0 ${stat.badgeClass}`}>
+                    <Icon className="size-4" />
+                  </div>
+                  <span className="text-xs font-semibold text-muted-foreground">{stat.label}</span>
                 </div>
                 <div className="flex items-baseline gap-1.5 font-bold tracking-tight text-foreground">
                   <span className="text-2xl sm:text-3xl tabular-nums font-extrabold">

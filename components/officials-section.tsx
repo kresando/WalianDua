@@ -63,7 +63,7 @@ export function OfficialsSection() {
                   </div>
                 )}
               </div>
-              <Badge className="mt-3 text-[10px] uppercase font-bold tracking-wider bg-foreground text-background">
+              <Badge className="mt-3 text-[10px] uppercase font-bold tracking-wider bg-primary text-primary-foreground shadow-xs">
                 Lurah Definitif
               </Badge>
             </div>
@@ -80,11 +80,11 @@ export function OfficialsSection() {
                   </Badge>
                 )}
               </div>
-              <span className="text-xs sm:text-sm text-muted-foreground font-semibold block mt-0.5">
+              <span className="text-xs sm:text-sm text-primary font-semibold block mt-0.5">
                 {lurah.role} • Pemerintah Kota Tomohon {lurah.nip && `(NIP. ${lurah.nip})`}
               </span>
 
-              <div className="mt-4 p-4 rounded-xl border border-border/60 bg-muted/20 text-xs sm:text-sm text-muted-foreground leading-relaxed italic">
+              <div className="mt-4 p-4 rounded-xl border-l-4 border-l-primary border-y border-r border-border/60 bg-secondary/35 text-xs sm:text-sm text-foreground/90 leading-relaxed italic">
                 &ldquo;Komitmen kami di Kelurahan Walian Dua adalah memastikan setiap warga mendapatkan pelayanan administrasi yang cepat, ramah, dan tanpa beban biaya. Bersama Kepala Lingkungan (Pala) dan seluruh elemen masyarakat, mari kita pelihara semangat gotong royong Mapalus demi kemajuan bersama.&rdquo;
               </div>
 

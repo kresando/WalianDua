@@ -7,13 +7,13 @@ export function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-background border-t border-border py-12 lg:py-16 text-foreground">
+    <footer className="bg-secondary/35 border-t border-border py-12 lg:py-16 text-foreground">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12 pb-12 border-b border-border">
           {/* Identity Column */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <div className="size-11 flex items-center justify-center p-1 rounded-lg border border-border bg-muted/40">
+              <div className="size-11 flex items-center justify-center p-1 rounded-lg border border-border bg-card">
                 <Image
                   src="/images/logo-tomohon.png"
                   alt="Lambang Kota Tomohon"
@@ -36,9 +36,9 @@ export function Footer() {
               Situs resmi pemerintahan Kelurahan Walian Dua, Kecamatan Tomohon Selatan, Kota Tomohon, Provinsi Sulawesi Utara. Diresmikan pada 29 Agustus 2008 oleh Walikota Tomohon Pertama pasca UU No. 10 Tahun 2003.
             </p>
 
-            <div className="mt-4 flex items-center gap-2 text-xs text-muted-foreground">
-              <span className="italic font-serif">&ldquo;Sitou Timou Tumou Tou&rdquo;</span>
-              <span>— Manusia hidup untuk memanusiakan sesama.</span>
+            <div className="mt-4 flex flex-wrap items-center gap-2 text-xs">
+              <span className="font-semibold italic text-primary">&ldquo;Sitou Timou Tumou Tou&rdquo;</span>
+              <span className="text-muted-foreground">— Manusia hidup untuk memanusiakan sesama.</span>
             </div>
           </div>
 
@@ -60,7 +60,7 @@ export function Footer() {
               </li>
               <li>
                 <a href="#layanan" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Layanan Surat Mandiri
+                  Layanan & Syarat Dokumen
                 </a>
               </li>
               <li>
@@ -109,7 +109,7 @@ export function Footer() {
               </li>
               <li>
                 <a href="#layanan" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Pengantar KTP & Kartu Keluarga
+                  Surat Keterangan Laporan Kehilangan
                 </a>
               </li>
               <li>

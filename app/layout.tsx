@@ -33,8 +33,15 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Pemerintah Kelurahan Walian Dua" }],
   icons: {
-    icon: "/images/logo-tomohon.png",
-    apple: "/images/logo-tomohon.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png", sizes: "32x32" },
+      { url: "/images/logo-tomohon.png", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
   },
   openGraph: {
     title: "Kelurahan Walian Dua - Kecamatan Tomohon Selatan, Kota Tomohon",

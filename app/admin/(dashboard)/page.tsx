@@ -78,7 +78,7 @@ export default async function AdminDashboardPage() {
             <div className="flex items-center gap-3 text-muted-foreground">
               <ShieldCheck className="size-4 text-emerald-600 shrink-0" />
               <span>
-                Wilayah Administrasi: <strong className="text-foreground">Kode 71.73.01.1011</strong> • 4 Lingkungan (Pala I - IV)
+                Wilayah Administrasi: <strong className="text-foreground">Kode 71.73.01.1011</strong> • 5 Lingkungan (Pala I - V)
               </span>
             </div>
 

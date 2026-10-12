@@ -17,7 +17,7 @@ const FALLBACK_ANNOUNCEMENTS: AnnouncementItem[] = [
     id: "1",
     tag: "Kesiapsiagaan & Lingkungan",
     title: "Kerja Bakti Mapalus: Pembersihan Drainase & Normalisasi Saluran Wawo",
-    date: "Sabtu Pekan Berjalan • 07:30 WITA",
+    date: "Setiap Sabtu Pagi • 07:30 WITA",
     summary:
       "Mengantisipasi curah hujan tinggi di lereng perbukitan, seluruh warga bersama Kepala Lingkungan (Pala I s/d V) dihimbau berpartisipasi dalam kerja bakti gotong royong pembersihan saluran air.",
     priority: "Penting",
@@ -37,7 +37,7 @@ const FALLBACK_ANNOUNCEMENTS: AnnouncementItem[] = [
     id: "3",
     tag: "Prestasi & Perpajakan",
     title: "Capaian 100% Lunas Pelunasan PBB-P2 Kelurahan Walian Dua",
-    date: "Realisasi Penuh Rp 52.373.581",
+    date: "Warta Prestasi Resmi",
     summary:
       "Pemerintah Kelurahan Walian Dua menyampaikan apresiasi mendalam kepada seluruh wajib pajak di 5 Lingkungan atas capaian realisasi penerimaan PBB-P2 sebesar 100% (Rp 52.373.581 lunas) tepat waktu.",
     priority: "Prestasi 100%",

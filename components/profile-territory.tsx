@@ -1,10 +1,30 @@
+"use client"
+
 import * as React from "react"
 import Image from "next/image"
-import { Navigation, Landmark, Church, School, Mountain, Activity, Award, History, Dumbbell, Users } from "lucide-react"
+import { 
+  Navigation, 
+  Landmark, 
+  Church, 
+  School, 
+  Mountain, 
+  Activity, 
+  Award, 
+  History, 
+  Dumbbell, 
+  Users, 
+  ExternalLink,
+  ZoomIn,
+  Download,
+  Maximize2
+} from "lucide-react"
 import { KELURAHAN_DATA } from "@/lib/data/kelurahan-data"
 import { Badge } from "@/components/ui/badge"
+import { InteractiveMapModal } from "@/components/interactive-map-modal"
 
 export function ProfileTerritory() {
+  const [isMapOpen, setIsMapOpen] = React.useState(false)
+
   const { 
     legalBasis, 
     kemendagriCode, 
@@ -37,15 +57,15 @@ export function ProfileTerritory() {
       icon: Landmark,
     },
     {
-      name: "Sarana Ibadah: 4 Gereja",
+      name: "Sarana Ibadah: 4 Gereja Resmi",
       type: "Rumah Ibadah",
-      detail: "Melayani 1.312 jemaat Kristen Protestan (termasuk GMIM Bukit Zaitun Tomohon IV), 385 umat Katolik, serta 110 umat Muslim dalam kerukunan penuh.",
+      detail: "GMIM Bukit Zaitun Walian Dua, GPdI Ekklesia Walian Dua, GKMI Gloria, dan Gereja YHS Bukit Hermon yang tersebar di wilayah lingkungan.",
       icon: Church,
     },
     {
-      name: "Pendidikan: PAUD & PAT",
+      name: "Pendidikan: TK GMIM Bukit Zaitun & PAUD",
       type: "Sarana Edukasi",
-      detail: "Pendidikan Anak Usia Dini (PAUD) dan Pendidikan Alkitab Tabernakel (PAT) untuk pembinaan budi pekerti generasi penerus.",
+      detail: "TK GMIM Bukit Zaitun Walian Dua dan PAUD untuk pembinaan pendidikan usia dini dan budi pekerti generasi penerus.",
       icon: School,
     },
     {
@@ -101,7 +121,7 @@ export function ProfileTerritory() {
                 <span className="text-sm font-bold text-foreground font-mono tabular-nums">{postalCode}</span>
               </div>
               <div className="p-3 rounded-lg bg-muted/40">
-                <span className="text-[11px] text-muted-foreground block font-medium">Luas Wilayah Inti</span>
+                <span className="text-[11px] text-muted-foreground block font-medium">Luas Wilayah</span>
                 <span className="text-xs font-bold text-foreground">{areaM2Text}</span>
               </div>
               <div className="p-3 rounded-lg bg-muted/40">
@@ -177,6 +197,56 @@ export function ProfileTerritory() {
                       <strong className="text-xs text-foreground tabular-nums mt-0.5 block">{dist.total} Jiwa</strong>
                     </div>
                   ))}
+                </div>
+              </div>
+
+              {/* Komposisi Usia Penduduk Riil */}
+              <div className="pt-3 border-t border-border/60">
+                <span className="text-[11px] font-semibold text-muted-foreground block mb-2">
+                  Komposisi Kelompok Usia Penduduk (DKB):
+                </span>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
+                  <div className="p-2 rounded-lg bg-muted/20 border border-border/40">
+                    <span className="text-[10px] text-muted-foreground block font-medium">Balita (&lt; 3 - 6 Thn)</span>
+                    <strong className="text-xs text-foreground tabular-nums block mt-0.5">125 Jiwa</strong>
+                  </div>
+                  <div className="p-2 rounded-lg bg-muted/20 border border-border/40">
+                    <span className="text-[10px] text-muted-foreground block font-medium">Usia Sekolah (7 - 18 Thn)</span>
+                    <strong className="text-xs text-foreground tabular-nums block mt-0.5">350 Jiwa</strong>
+                  </div>
+                  <div className="p-2 rounded-lg bg-muted/20 border border-border/40">
+                    <span className="text-[10px] text-muted-foreground block font-medium">Usia Produktif (19 - 59 Thn)</span>
+                    <strong className="text-xs text-foreground tabular-nums block mt-0.5">1.153 Jiwa</strong>
+                  </div>
+                  <div className="p-2 rounded-lg bg-muted/20 border border-border/40">
+                    <span className="text-[10px] text-muted-foreground block font-medium">Lansia (&ge; 60 Thn)</span>
+                    <strong className="text-xs text-foreground tabular-nums block mt-0.5">180 Jiwa</strong>
+                  </div>
+                </div>
+              </div>
+
+              {/* Komposisi Pendidikan Terakhir Riil */}
+              <div className="pt-3 border-t border-border/60">
+                <span className="text-[11px] font-semibold text-muted-foreground block mb-2">
+                  Komposisi Pendidikan Terakhir Warga:
+                </span>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
+                  <div className="p-2 rounded-lg bg-muted/20 border border-border/40">
+                    <span className="text-[10px] text-muted-foreground block font-medium">Tamat SD / Sederajat</span>
+                    <strong className="text-xs text-foreground tabular-nums block mt-0.5">152 Jiwa</strong>
+                  </div>
+                  <div className="p-2 rounded-lg bg-muted/20 border border-border/40">
+                    <span className="text-[10px] text-muted-foreground block font-medium">Tamat SLTP / SMP</span>
+                    <strong className="text-xs text-foreground tabular-nums block mt-0.5">261 Jiwa</strong>
+                  </div>
+                  <div className="p-2 rounded-lg bg-muted/20 border border-border/40">
+                    <span className="text-[10px] text-muted-foreground block font-medium">Tamat SLTA / SMA/SMK</span>
+                    <strong className="text-xs text-foreground tabular-nums block mt-0.5">687 Jiwa</strong>
+                  </div>
+                  <div className="p-2 rounded-lg bg-muted/20 border border-border/40">
+                    <span className="text-[10px] text-muted-foreground block font-medium">Perguruan Tinggi (D1-S3)</span>
+                    <strong className="text-xs text-foreground tabular-nums block mt-0.5">324 Jiwa</strong>
+                  </div>
                 </div>
               </div>
             </div>
@@ -262,51 +332,91 @@ export function ProfileTerritory() {
               <div className="p-4 border-b border-border bg-muted/30 flex items-center justify-between">
                 <div>
                   <h3 className="text-xs font-bold uppercase tracking-wider text-foreground">
-                    Peta Wilayah Kecamatan
+                    Peta Administrasi Kelurahan Walian Dua
                   </h3>
                   <p className="text-[11px] text-muted-foreground">
-                    Tomohon Selatan, Kota Tomohon
+                    Skala 1:2.000 • KKT-149 Unsrat 2026 & Pemkot Tomohon
                   </p>
                 </div>
-                <Badge variant="outline" className="text-[10px] font-mono">
-                  BIG Geospasial
+                <Badge variant="outline" className="text-[10px] font-mono text-emerald-700 bg-emerald-50 dark:bg-emerald-950/40 border-emerald-300">
+                  Resmi 5 Lingkungan
                 </Badge>
               </div>
-              <div className="relative aspect-[4/3] bg-muted">
+              <button
+                type="button"
+                onClick={() => setIsMapOpen(true)}
+                aria-label="Buka peta administrasi interaktif resolusi tinggi"
+                className="relative aspect-[4/3] bg-muted/30 w-full block group overflow-hidden cursor-zoom-in text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              >
                 <Image
-                  src="/images/peta-tomohon.png"
-                  alt="Peta Pembagian Wilayah Kota Tomohon dan Tomohon Selatan"
+                  src="/images/peta-walian-dua-web.webp"
+                  alt="Peta Administrasi Kelurahan Walian Dua Kecamatan Tomohon Selatan"
                   fill
                   sizes="(max-width: 1024px) 100vw, 40vw"
-                  className="object-contain p-3"
+                  className="object-contain p-2 group-hover:scale-[1.02] transition-transform duration-300"
                 />
-              </div>
-              <div className="p-4 text-xs text-muted-foreground border-t border-border/60 bg-card">
-                Kelurahan Walian Dua berbatasan langsung dengan pusat aktivitas Tomohon Selatan dan wilayah penyangga perkebunan Wawo.
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center pointer-events-none">
+                  <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/80 backdrop-blur-xs text-white text-xs font-semibold shadow-md">
+                    <ZoomIn className="size-3.5" />
+                    Perbesar Peta Interaktif
+                  </span>
+                </div>
+              </button>
+
+              <InteractiveMapModal 
+                open={isMapOpen} 
+                onOpenChange={setIsMapOpen} 
+              />
+
+              <div className="p-4 text-xs text-muted-foreground border-t border-border/60 bg-card flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <span>Memuat batas resmi Lingkungan 1–5, jaringan jalan, kantor kelurahan, puskesmas pembantu, dan sarana ibadah.</span>
+                <a
+                  href="/images/peta-walian-dua.png"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 font-semibold text-foreground hover:text-primary shrink-0 text-xs mt-1 sm:mt-0 transition-colors"
+                >
+                  <span>Buka Peta HD (4K)</span>
+                  <ExternalLink className="size-3.5" />
+                </a>
               </div>
             </div>
 
-            {/* Danau Linow proximity preview */}
+            {/* Narwastu Hills proximity preview */}
             <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm group">
-              <div className="relative aspect-[16/9] bg-muted">
+              <a
+                href="https://www.google.com/maps/dir/Kantor+Kelurahan+Walian+Dua/Narwastu+Hills"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Buka rute Google Maps ke Narwastu Hills"
+                className="relative aspect-[16/9] bg-muted block overflow-hidden"
+              >
                 <Image
-                  src="/images/danau-linow.jpg"
-                  alt="Danau Linow di Tomohon Selatan"
+                  src="/images/narwastu-hills.jpg"
+                  alt="Destinasi Wisata Narwastu Hills Puncak Wawo Tomohon"
                   fill
                   sizes="(max-width: 1024px) 100vw, 40vw"
-                  className="object-cover"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-                <div className="absolute bottom-3 left-4 right-4 text-white">
-                  <span className="text-[10px] font-semibold uppercase tracking-wider text-emerald-300">
-                    Kawasan Terdekat • 5 Menit
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
+                <div className="absolute top-3 right-3">
+                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-xs text-white text-[10px] font-semibold border border-white/20">
+                    <span>Buka Rute GMaps</span>
+                    <ExternalLink className="size-3" />
                   </span>
-                  <h4 className="text-sm font-bold">Danau Linow Tomohon Selatan</h4>
-                  <p className="text-[11px] text-white/80 line-clamp-1 mt-0.5">
-                    Danau 3 warna hydrothermal ikonik dunia di Tomohon Selatan
+                </div>
+                <div className="absolute bottom-3 left-4 right-4 text-white">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-300">
+                    Kawasan Terdekat • ± 8–10 Menit (4,2 km via GMaps)
+                  </span>
+                  <h4 className="text-sm font-bold group-hover:text-emerald-200 transition-colors">
+                    Narwastu Hills Tomohon (Puncak Wawo)
+                  </h4>
+                  <p className="text-[11px] text-white/85 line-clamp-1 mt-0.5">
+                    Destinasi panorama alam Gunung Lokon & Kota Tomohon di perbukitan timur Walian Dua
                   </p>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
         </div>

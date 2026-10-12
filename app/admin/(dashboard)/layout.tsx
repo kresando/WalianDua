@@ -107,7 +107,7 @@ export default function AdminDashboardLayout({
   if (loadingAuth) {
     return (
       <div className="min-h-screen bg-muted/20 flex flex-col items-center justify-center p-6 space-y-4">
-        <div className="size-10 rounded-xl bg-foreground text-background flex items-center justify-center animate-pulse">
+        <div className="size-10 rounded-xl bg-primary text-primary-foreground flex items-center justify-center animate-pulse">
           <ShieldCheck className="size-5" />
         </div>
         <div className="space-y-2 text-center">
@@ -131,15 +131,15 @@ export default function AdminDashboardLayout({
             onClick={() => onNavigate?.()}
             className={`flex items-center justify-between px-3.5 py-2.5 min-h-[44px] rounded-xl text-xs font-semibold transition-all ${
               isActive
-                ? "bg-foreground text-background shadow-xs font-bold"
+                ? "bg-primary text-primary-foreground shadow-xs font-bold"
                 : "text-muted-foreground hover:text-foreground hover:bg-muted/70"
             }`}
           >
             <div className="flex items-center gap-3">
-              <Icon className={`size-4 ${isActive ? "text-background" : "text-muted-foreground"}`} />
+              <Icon className={`size-4 ${isActive ? "text-primary-foreground" : "text-muted-foreground"}`} />
               <span>{item.label}</span>
             </div>
-            {isActive && <ChevronRight className="size-3.5 text-background/80" />}
+            {isActive && <ChevronRight className="size-3.5 text-primary-foreground/80" />}
           </Link>
         )
       })}
@@ -151,7 +151,7 @@ export default function AdminDashboardLayout({
       <div>
         {/* Brand Header */}
         <div className="p-5 border-b border-border flex items-center gap-3">
-          <div className="size-10 rounded-xl bg-foreground text-background flex items-center justify-center shadow-xs shrink-0">
+          <div className="size-10 rounded-xl bg-primary text-primary-foreground flex items-center justify-center shadow-xs shrink-0">
             <ShieldCheck className="size-5" />
           </div>
           <div>
@@ -173,7 +173,7 @@ export default function AdminDashboardLayout({
         {adminUser && (
           <div className="flex items-center gap-3 p-2.5 rounded-xl bg-muted/40 border border-border/50">
             <Avatar className="size-8">
-              <AvatarFallback className="text-[11px] font-bold bg-foreground text-background">
+              <AvatarFallback className="text-[11px] font-bold bg-primary text-primary-foreground">
                 {adminUser.name.slice(0, 2).toUpperCase()}
               </AvatarFallback>
             </Avatar>
