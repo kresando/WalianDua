@@ -385,15 +385,15 @@ export function ProfileTerritory() {
             {/* Narwastu Hills proximity preview */}
             <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm group">
               <a
-                href="https://www.google.com/maps/dir/Kantor+Kelurahan+Walian+Dua/Narwastu+Hills"
+                href="https://www.google.com/maps/place/Narwastu+Hills+Resort/@1.302137,124.847342,17z"
                 target="_blank"
                 rel="noopener noreferrer"
-                title="Buka rute Google Maps ke Narwastu Hills"
+                title="Buka Narwastu Hills Resort di Google Maps"
                 className="relative aspect-[16/9] bg-muted block overflow-hidden"
               >
                 <Image
                   src="/images/narwastu-hills.jpg"
-                  alt="Destinasi Wisata Narwastu Hills Puncak Wawo Tomohon"
+                  alt="Destinasi Wisata Narwastu Hills Resort Puncak Wawo Tomohon"
                   fill
                   sizes="(max-width: 1024px) 100vw, 40vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -401,7 +401,7 @@ export function ProfileTerritory() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
                 <div className="absolute top-3 right-3">
                   <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-xs text-white text-[10px] font-semibold border border-white/20">
-                    <span>Buka Rute GMaps</span>
+                    <span>Lihat di GMaps</span>
                     <ExternalLink className="size-3" />
                   </span>
                 </div>
@@ -410,7 +410,7 @@ export function ProfileTerritory() {
                     Kawasan Terdekat • ± 8–10 Menit (4,2 km via GMaps)
                   </span>
                   <h4 className="text-sm font-bold group-hover:text-emerald-200 transition-colors">
-                    Narwastu Hills Tomohon (Puncak Wawo)
+                    Narwastu Hills Resort (Puncak Wawo)
                   </h4>
                   <p className="text-[11px] text-white/85 line-clamp-1 mt-0.5">
                     Destinasi panorama alam Gunung Lokon & Kota Tomohon di perbukitan timur Walian Dua
