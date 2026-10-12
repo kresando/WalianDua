@@ -383,40 +383,58 @@ export function ProfileTerritory() {
             </div>
 
             {/* Narwastu Hills proximity preview */}
-            <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm group">
+            <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm flex flex-col">
+              <div className="p-4 border-b border-border bg-muted/30 flex items-center justify-between gap-2">
+                <div>
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-foreground">
+                    Kawasan Wisata Terdekat
+                  </h3>
+                  <p className="text-[11px] text-muted-foreground">
+                    Narwastu Hills Resort • Puncak Wawo
+                  </p>
+                </div>
+                <Badge variant="outline" className="text-[10px] font-mono text-emerald-700 bg-emerald-50 dark:bg-emerald-950/40 border-emerald-300 shrink-0">
+                  ± 8–10 Menit (4,2 km)
+                </Badge>
+              </div>
+
               <a
                 href="https://www.google.com/maps/place/Narwastu+Hills+Resort/@1.302137,124.847342,17z"
                 target="_blank"
                 rel="noopener noreferrer"
-                title="Buka Narwastu Hills Resort di Google Maps"
-                className="relative aspect-[16/9] bg-muted block overflow-hidden"
+                title="Buka rute Narwastu Hills Resort di Google Maps"
+                className="relative aspect-[4/3] bg-muted/30 w-full block group overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
               >
                 <Image
                   src="/images/narwastu-hills.jpg"
-                  alt="Destinasi Wisata Narwastu Hills Resort Puncak Wawo Tomohon"
+                  alt="Destinasi Wisata Narwastu Hills Resort Puncak Wawo Tomohon dengan panorama Gunung Lokon"
                   fill
                   sizes="(max-width: 1024px) 100vw, 40vw"
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  style={{ objectPosition: "center 70%" }}
+                  className="object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
-                <div className="absolute top-3 right-3">
-                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-xs text-white text-[10px] font-semibold border border-white/20">
-                    <span>Lihat di GMaps</span>
-                    <ExternalLink className="size-3" />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center pointer-events-none">
+                  <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/80 backdrop-blur-xs text-white text-xs font-semibold shadow-md">
+                    <ExternalLink className="size-3.5" />
+                    Buka di Google Maps
                   </span>
-                </div>
-                <div className="absolute bottom-3 left-4 right-4 text-white">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-300">
-                    Kawasan Terdekat • ± 8–10 Menit (4,2 km via GMaps)
-                  </span>
-                  <h4 className="text-sm font-bold group-hover:text-emerald-200 transition-colors">
-                    Narwastu Hills Resort (Puncak Wawo)
-                  </h4>
-                  <p className="text-[11px] text-white/85 line-clamp-1 mt-0.5">
-                    Destinasi panorama alam Gunung Lokon & Kota Tomohon di perbukitan timur Walian Dua
-                  </p>
                 </div>
               </a>
+
+              <div className="p-4 text-xs text-muted-foreground border-t border-border/60 bg-card flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <p className="leading-relaxed">
+                  Destinasi panorama alam Gunung Lokon & lembah Kota Tomohon di perbukitan timur Walian Dua.
+                </p>
+                <a
+                  href="https://www.google.com/maps/place/Narwastu+Hills+Resort/@1.302137,124.847342,17z"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 font-semibold text-foreground hover:text-primary shrink-0 text-xs transition-colors py-1 px-2 rounded-md hover:bg-muted"
+                >
+                  <span>Petunjuk Rute</span>
+                  <ExternalLink className="size-3.5" />
+                </a>
+              </div>
             </div>
           </div>
         </div>
