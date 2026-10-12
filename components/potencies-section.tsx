@@ -192,8 +192,17 @@ export function PotenciesSection() {
               </p>
 
               <div className="mt-6 pt-4 border-t border-border/60 flex items-center justify-between text-xs text-muted-foreground">
-                <span>Tomohon Selatan</span>
-                <span className="font-semibold text-foreground">Ekowisata Danau & Geotermal</span>
+                <span className="font-mono text-[11px]">± 5,3 km via Jl. Raya Tomohon</span>
+                <a
+                  href="https://www.google.com/maps/place/Danau+Linow/@1.2720977,124.8193855,16z"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 font-semibold text-foreground hover:text-primary transition-colors"
+                  title="Lihat rute Danau Linow di Google Maps"
+                >
+                  <span>Rute Google Maps</span>
+                  <ArrowUpRight className="size-3.5" />
+                </a>
               </div>
             </div>
           </div>
