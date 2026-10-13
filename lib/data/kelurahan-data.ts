@@ -531,6 +531,16 @@ export const ASSET_CATALOGUE: MediaAsset[] = [
     credit: "Community Culture Archive",
     category: "Sosial Kemasyarakatan",
   },
+  {
+    id: "galeri-kkn-unsrat-unima",
+    title: "Posko KKT UNSRAT & KKN UNIMA di Kantor Lurah",
+    type: "image",
+    src: "/images/galeri-kkn-unsrat-unima.jpg",
+    alt: "Mahasiswa KKT UNSRAT dan KKN UNIMA bersama Lurah di Posko Kantor Kelurahan Walian Dua",
+    caption: "Dokumentasi kebersamaan mahasiswa KKT UNSRAT dan KKN UNIMA bersama Lurah Marlon Jhon Taroreh, A.Md.Kep. di posko Kantor Kelurahan Walian Dua.",
+    credit: "Dokumentasi Resmi Kelurahan Walian Dua",
+    category: "Pendidikan & Pengabdian Masyarakat",
+  },
 ]
 
 export const VIDEO_REFERENCES = [
