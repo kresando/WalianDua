@@ -7,7 +7,8 @@ import {
   Clock, 
   Mail, 
   Send, 
-  CheckCircle2
+  CheckCircle2,
+  ExternalLink
 } from "lucide-react"
 import { KELURAHAN_DATA } from "@/lib/data/kelurahan-data"
 import { Button } from "@/components/ui/button"
@@ -66,10 +67,21 @@ export function HaloLurahSection() {
                 <div className="size-9 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0 mt-0.5">
                   <MapPin className="size-4.5" />
                 </div>
-                <div>
-                  <strong className="text-xs font-bold text-foreground block">
-                    Alamat Kantor Kelurahan
-                  </strong>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center justify-between gap-2">
+                    <strong className="text-xs font-bold text-foreground block">
+                      Alamat Kantor Kelurahan
+                    </strong>
+                    <a
+                      href={contact.googleMapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-[11px] font-semibold text-primary hover:underline shrink-0"
+                    >
+                      <span>Buka Google Maps</span>
+                      <ExternalLink className="size-3" />
+                    </a>
+                  </div>
                   <span className="text-xs text-muted-foreground leading-relaxed mt-0.5 block">
                     {contact.address}
                   </span>
@@ -101,9 +113,11 @@ export function HaloLurahSection() {
                   <span className="text-xs text-muted-foreground leading-relaxed block mt-0.5">
                     WhatsApp: {contact.whatsapp} (Cepat Tanggap)
                   </span>
-                  <span className="text-xs text-muted-foreground leading-relaxed block">
-                    Telepon Kantor: {contact.phone}
-                  </span>
+                  {Boolean(contact.phone && contact.phone.trim()) && (
+                    <span className="text-xs text-muted-foreground leading-relaxed block">
+                      Telepon Kantor: {contact.phone}
+                    </span>
+                  )}
                 </div>
               </div>
 

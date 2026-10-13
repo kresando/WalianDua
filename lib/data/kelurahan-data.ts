@@ -195,12 +195,12 @@ export const KELURAHAN_DATA: KelurahanInfo = {
     homeIndustryCount: 4,
   },
   contact: {
-    address: "Jl. Kolongan - Walian, Lingkungan II, Walian Dua, Kec. Tomohon Selatan, Kota Tomohon, Sulawesi Utara 95439",
+    address: "Jl. Mangga No. 147, Lingkungan II, Walian Dua, Kec. Tomohon Selatan, Kota Tomohon, Sulawesi Utara 95439",
     officeHours: "Senin - Jumat: 08:00 - 16:00 WITA",
     email: "kelurahan.waliandua@tomohon.go.id",
-    phone: "(0431) 351001",
+    phone: "",
     whatsapp: "0851-7234-0386",
-    googleMapsUrl: "https://maps.google.com/?q=Walian+Dua+Tomohon+Selatan",
+    googleMapsUrl: "https://maps.app.goo.gl/RwEDmRPDeo46ZieQA",
   },
 }
 

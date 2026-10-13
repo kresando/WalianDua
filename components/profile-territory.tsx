@@ -53,8 +53,9 @@ export function ProfileTerritory() {
     {
       name: "Kantor Kelurahan Walian Dua",
       type: "Pusat Pemerintahan",
-      detail: "Rumah panggung kayu tradisional Minahasa, Jl. Kolongan - Walian, Lingkungan II. Pelayanan Senin-Jumat 08:00 - 16:00 WITA.",
+      detail: "Rumah panggung kayu tradisional Minahasa, Jl. Mangga No. 147, Lingkungan II. Pelayanan Senin-Jumat 08:00 - 16:00 WITA.",
       icon: Landmark,
+      mapUrl: "https://maps.app.goo.gl/RwEDmRPDeo46ZieQA",
     },
     {
       name: "Sarana Ibadah: 4 Gereja Resmi",
@@ -318,6 +319,17 @@ export function ProfileTerritory() {
                         <p className="text-[11px] text-muted-foreground leading-relaxed">
                           {facility.detail}
                         </p>
+                        {"mapUrl" in facility && Boolean(facility.mapUrl) && (
+                          <a
+                            href={facility.mapUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-[11px] font-semibold text-primary hover:underline mt-1.5"
+                          >
+                            <span>Buka Google Maps</span>
+                            <ExternalLink className="size-3" />
+                          </a>
+                        )}
                       </div>
                     </div>
                   )
