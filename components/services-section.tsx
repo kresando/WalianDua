@@ -3,7 +3,6 @@
 import * as React from "react"
 import { 
   FileText, 
-  Clock, 
   CheckCircle2, 
   ShieldCheck, 
   ArrowRight, 
@@ -50,7 +49,7 @@ export function ServicesSection() {
               Pengurusan Surat & Administrasi Warga
             </h2>
             <p className="mt-2 text-sm sm:text-base text-muted-foreground max-w-2xl leading-relaxed">
-              Panduan lengkap syarat, estimasi waktu, dan mekanisme pengurusan surat keterangan resmi dari Pemerintah Kelurahan Walian Dua.
+              Panduan lengkap berkas persyaratan dan alur pengurusan surat keterangan resmi dari Pemerintah Kelurahan Walian Dua.
             </p>
           </div>
 
@@ -104,12 +103,9 @@ export function ServicesSection() {
                 className="group flex flex-col justify-between p-6 rounded-2xl border border-zinc-200/90 bg-card hover:border-zinc-300 hover:shadow-[0_8px_30px_-6px_rgba(0,0,0,0.06)] hover:-translate-y-0.5 transition-all duration-300"
               >
                 <div>
-                  <div className="flex items-center justify-between gap-2 mb-3">
+                  <div className="mb-3">
                     <Badge variant="outline" className="text-[10px] uppercase font-semibold">
                       {service.category}
-                    </Badge>
-                    <Badge variant="secondary" className="text-xs font-medium text-emerald-700 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200/60 dark:border-emerald-800/40">
-                      {service.cost}
                     </Badge>
                   </div>
 
@@ -120,11 +116,6 @@ export function ServicesSection() {
                   <p className="mt-2 text-xs sm:text-sm text-muted-foreground leading-relaxed line-clamp-3">
                     {service.description}
                   </p>
-
-                  <div className="mt-4 pt-4 border-t border-border/60 flex items-center gap-2 text-xs text-muted-foreground">
-                    <Clock className="size-3.5 text-muted-foreground shrink-0" />
-                    <span>Waktu Proses: <strong className="text-foreground font-semibold">{service.processingTime}</strong></span>
-                  </div>
                 </div>
 
                 <div className="mt-6 pt-4 border-t border-border flex items-center justify-between gap-2">
@@ -176,12 +167,9 @@ export function ServicesSection() {
           {activeService && (
             <>
               <DialogHeader>
-                <div className="flex items-center gap-2 mb-1">
+                <div className="mb-1">
                   <Badge variant="outline" className="text-[10px] uppercase font-semibold">
                     {activeService.category}
-                  </Badge>
-                  <Badge variant="secondary" className="text-[10px] font-bold text-emerald-700 bg-emerald-50 dark:bg-emerald-950/40">
-                    Biaya: {activeService.cost}
                   </Badge>
                 </div>
                 <DialogTitle className="text-xl sm:text-2xl font-bold tracking-tight text-foreground text-left">
@@ -191,12 +179,6 @@ export function ServicesSection() {
                   {activeService.description}
                 </DialogDescription>
               </DialogHeader>
-
-              {/* Processing Time Meta */}
-              <div className="p-3 rounded-lg border border-border/80 bg-muted/30 flex items-center justify-between text-xs">
-                <span className="text-muted-foreground">Estimasi Penyelesaian:</span>
-                <strong className="text-foreground font-semibold">{activeService.processingTime}</strong>
-              </div>
 
               {/* Requirements Checklist */}
               <div className="mt-2">
